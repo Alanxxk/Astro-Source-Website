@@ -6,12 +6,14 @@ import { fontConfig } from "./fontConfig";
 const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
-  title: "Firefly",
-  subtitle: "Demo site",
+  title: "Alanxxk'Blog",
+  subtitle: "记录与分享知识",
   site_url: "https://alanxxk-blog.netlify.app/", //https://firefly.cuteleaf.cn
   description:
-    "Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。",
+    "这是Alanxxk的个人博客网站，欢迎各位浏览访问，可以从博客中学习到知识是我的荣幸，能给我更多评论反馈我更甚是感激，如果有能力还可以进行赞助。",
   keywords: [
+    "Alanxxk",
+    "Blog",
     "Firefly",
     "Fuwari",
     "Astro",
@@ -24,7 +26,7 @@ export const siteConfig: SiteConfig = {
   lang: SITE_LANG,
 
   themeColor: {
-    hue: 165, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+    hue: 30, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
     fixed: false, // 对访问者隐藏主题色选择器
     defaultMode: "system", // 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
   },
@@ -51,11 +53,11 @@ export const siteConfig: SiteConfig = {
   navbarTitle: "Firefly", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
 
   // 站点开始日期，用于统计运行天数
-  siteStartDate: "2025-01-01", // 请修改为你的站点实际开始日期，格式：YYYY-MM-DD
+  siteStartDate: "2025-11-24", // 请修改为你的站点实际开始日期，格式：YYYY-MM-DD
 
   // 追番配置
   bangumi: {
-    userId: "1163581", // 在此处设置你的Bangumi用户ID
+    userId: "1182323", // 在此处设置你的Bangumi用户ID
   },
 
   // 文章页底部的"上次编辑时间"卡片开关

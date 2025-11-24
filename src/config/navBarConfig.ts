@@ -16,13 +16,13 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
     children: [
       {
         name: "GitHub",
-        url: "https://github.com/CuteLeaf/Firefly",
+        url: "https://github.com/Alanxxk",
         external: true,
         icon: "fa6-brands:github",
       },
       {
         name: "Bilibili",
-        url: "https://space.bilibili.com/38932988",
+        url: "https://space.bilibili.com/629069256?spm_id_from=333.1007.0.0",
         external: true,
         icon: "fa6-brands:bilibili",
       },

@@ -10,7 +10,7 @@ export const adConfig1: AdConfig = {
     link: "#",
     external: true,
   },
-  closable: true, // 是否可关闭
+  closable: false, // 是否可关闭
   displayCount: -1,
   padding: {
     all: "0", // 零边距，图片占满整个组件
@@ -26,7 +26,7 @@ export const adConfig1: AdConfig = {
 export const adConfig2: AdConfig = {
   title: "支持博主",
   content:
-    "如果您觉得本站内容对您有帮助，欢迎支持我们的创作！您的支持是我们持续更新的动力。",
+    "如果您觉得本站内容对您有帮助，欢迎支持我的创作！您的支持是我持续更新的动力。",
   image: {
     src: "/assets/images/d2.webp",
     alt: "支持博主",
@@ -38,7 +38,7 @@ export const adConfig2: AdConfig = {
     url: "about/",
     external: false,
   },
-  closable: true,
+  closable: false,
   displayCount: -1,
   padding: {
     // all: "1rem",
