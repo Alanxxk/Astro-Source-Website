@@ -1,6 +1,6 @@
 # 关于我 / About Me
 
-你好！我是 **夏叶** ，一个在数字世界中默默无闻的一片叶子。
+<!-- 你好！我是 **夏叶** ，一个在数字世界中默默无闻的一片叶子。
 
 ## 🛠️ 关于本站
 
@@ -30,6 +30,26 @@
 
 - 💻 **GitHub**: [CuteLeaf](https://github.com/CuteLeaf)
 - ✉️ **Email**: [xiaye@msn.com](mailto:xiaye@msn.com)
+
+---
+
+*感谢你的来访！希望在这里能找到对你有用的内容！* -->
+
+你好！我是 **Alan_xxk** ，一个在数字世界中默默无闻的一簇小火苗。
+
+## 🛠️ 关于本站
+
+这里是 Alanxxk 的技术博客，一个记录编程探索与实战经验的数字空间。我将在此分享开发中的解决方案、技术洞察与学习心得，希望能为同样在技术道路上探索的你提供有价值的参考。
+
+## 📫 联系方式
+
+如果你想和我交流技术问题，分享有趣的想法，或者只是想打个招呼，欢迎通过以下方式联系我：
+
+- 🐱 **GitHub**：[Alanxxk](https://github.com/Alanxxk)
+- 🐧 **QQ Mail**：[377329149@qq.com](mailto:377329149@qq.com)
+- 🗺️ **Gmail**：[alan.xxk.mikasa@gmail.com](mailto:alan.xxk.mikasa@gmail.com)
+- 🪟 **Outlook**：[Alan_xxk@outlook.com](mailto:Alan_xxk@outlook.com)
+- ✈️ **Telegram**：[Telegram](https://web.telegram.org/a/#5163711212)
 
 ---
 

@@ -8,7 +8,11 @@ const SITE_LANG = "zh_CN";
 export const siteConfig: SiteConfig = {
   title: "Alanxxk'Blog",
   subtitle: "记录与分享知识",
-  site_url: "https://alanxxk-blog.netlify.app/", //https://firefly.cuteleaf.cn
+  site_url: 
+            // "https://alanxxk-blog.netlify.app/", // Netlify
+            "https://alanxxk-blog.vercel.app/", // Vercel
+            // "https://alanxxk.github.io/Astro-Source-Website/", // GitHub
+            // "https://firefly.cuteleaf.cn",// 默认
   description:
     "这是Alanxxk的个人博客网站，欢迎各位浏览访问，可以从博客中学习到知识是我的荣幸，能给我更多评论反馈我更甚是感激，如果有能力还可以进行赞助。",
   keywords: [
@@ -26,7 +30,7 @@ export const siteConfig: SiteConfig = {
   lang: SITE_LANG,
 
   themeColor: {
-    hue: 30, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+    hue: 50, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
     fixed: false, // 对访问者隐藏主题色选择器
     defaultMode: "system", // 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
   },
@@ -34,7 +38,7 @@ export const siteConfig: SiteConfig = {
   favicon: [
     // 留空以使用默认 favicon
     {
-      src: "/assets/images/favicon.ico", // 图标文件路径
+      src: "/assets/images/Alanxxk_material/利威尔_Avatar_Transparent.png", // 图标文件路径
       theme: "light", // 可选，指定主题 'light' | 'dark'
       sizes: "32x32", // 可选，图标大小
     },
@@ -47,10 +51,10 @@ export const siteConfig: SiteConfig = {
   // { type: "image", value: "https://example.com/logo.png", alt: "Firefly Logo" }
   navbarLogo: {
     type: "image",
-    value: "/assets/images/LiuYingPure3.svg",
-    alt: "🍀",
+    value: "/assets/images/Alanxxk_material/三笠_Avatar_Transparent.png",
+    alt: "🏠",
   },
-  navbarTitle: "Firefly", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
+  navbarTitle: "Alanxxk", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
 
   // 站点开始日期，用于统计运行天数
   siteStartDate: "2025-11-24", // 请修改为你的站点实际开始日期，格式：YYYY-MM-DD
@@ -98,9 +102,9 @@ export const siteConfig: SiteConfig = {
     // 背景图片配置
     src: {
       // 桌面背景图片
-      desktop: "/assets/images/d1.webp",
+      desktop: "/assets/images/Alanxxk_material/Mikasa_lost_girls.png",
       // 移动背景图片
-      mobile: "/assets/images/m1.webp",
+      mobile: "/assets/images/Alanxxk_material/Mikasa_lost_girls.png",
     },
 
     // Banner模式特有配置
@@ -108,26 +112,28 @@ export const siteConfig: SiteConfig = {
       // 图片位置
       // 支持所有CSS object-position值，如: 'top', 'center', 'bottom', 'left top', 'right bottom', '25% 75%', '10px 20px'..
       // 如果不知道怎么配置百分百之类的配置，推荐直接使用：'center'居中，'top'顶部居中，'bottom' 底部居中，'left'左侧居中，'right'右侧居中
-      position: "0% 20%",
+      position: "40% 40%",
       
       homeText: {
         // 主页显示自定义文本（全局开关）
         enable: true,
         // 主页横幅主标题
-        title: "Lovely firefly!",
+        title: "The Great Tech Voyage!",
         // 主页横幅副标题
         subtitle: [
-          "In Reddened Chrysalis, I Once Rest",
-          "From Shattered Sky, I Free Fall",
-          "Amidst Silenced Stars, I Deep Sleep",
-          "Upon Lighted Fyrefly, I Soon Gaze",
-          "From Undreamt Night, I Thence Shine",
-          "In Finalized Morrow, I Full Bloom",
+          "Setting Sail from Logic's Port",        // 从逻辑之港启航
+          "Navigating the Grand Code Line",        // 航行在伟大代码航路
+          "Riding the Waves of Breakthrough",      // 乘突破之浪前行
+          "Each Wave Brings Me Closer",            // 每个波浪让我更近
+          "Discovering Islands of Innovation",     // 发现创新之岛
+          "Seeking the One Solution",              // 寻找唯一解决方案
+          "Anchoring at Innovation Harbor",        // 停泊创新之港
+          "The Treasure is the Journey Itself"     // 宝藏即是旅程本身
         ],
         typewriter: {
           //打字机开启 → 循环显示所有副标题
           //打字机关闭 → 每次刷新随机显示一条副标题
-          enable: false, // 启用副标题打字机效果
+          enable: true, // 启用副标题打字机效果
           speed: 100, // 打字速度（毫秒）
           deleteSpeed: 50, // 删除速度（毫秒）
           pauseTime: 2000, // 完全显示后的暂停时间（毫秒）
@@ -136,14 +142,14 @@ export const siteConfig: SiteConfig = {
       credit: {
         enable: {
           desktop: true, // 桌面端显示横幅图片来源文本
-          mobile: false, // 移动端显示横幅图片来源文本
+          mobile: true, // 移动端显示横幅图片来源文本
         },
         text: {
-          desktop: "Pixiv - 晚晚喵", // 桌面端要显示的来源文本
-          mobile: "Mobile Credit", // 移动端要显示的来源文本
+          desktop: "Attack on Titan: Lost Girls", // 桌面端要显示的来源文本
+          mobile: "AOT Lost Girls", // 移动端要显示的来源文本
         },
         url: {
-          desktop: "https://www.pixiv.net/artworks/135490046", // 桌面端原始艺术品或艺术家页面的 URL 链接
+          desktop: "", // 桌面端原始艺术品或艺术家页面的 URL 链接
           mobile: "", // 移动端原始艺术品或艺术家页面的 URL 链接
         },
       },
