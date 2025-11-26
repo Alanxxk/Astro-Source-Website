@@ -37,7 +37,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
         name: "知乎",
         url: "https://www.zhihu.com/people/xxk-74-98",
         external: true,
-        icon: "fa6-brands:zhihu",
+        icon: "simple-icons:zhihu",
       },
       //外网—学术
       {
@@ -63,7 +63,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
         name: "YouTube",
         url: "https://www.youtube.com/channel/UCSmG58-YIUVchDo9eEgPMwg",
         external: true,
-        icon: "fa6-brands:youtube",
+        icon: "simple-icons:youtube",
       },
       {
         name: "Instagram",
