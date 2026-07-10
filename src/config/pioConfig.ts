@@ -88,9 +88,54 @@ export const live2dWidgetConfig: Live2DWidgetConfig = {
 	enable: true,
 	// 模型配置，支持单个模型或数组（多模型切换）
 	model: [
+		// {
+		// 	// Live2D模型本地文件路径
+		// 	path: "/pio/models/live2d/snow_miku/model.json",
+		// 	// 动作声音音量 范围0~1，默认 0（静音）
+		// 	volume: 0,
+		// 	// 模型缩放比例
+		// 	scale: 1,
+		// 	// X轴偏移，范围 -2~2，正值向右
+		// 	x: 0,
+		// 	// Y轴偏移，范围 -2~2，正值向上
+		// 	y: 0,
+		// },
+		// {
+		// 	// 外部直连模型
+		// 	path: "https://model.hacxy.cn/cat-black/model.json",
+		// 	volume: 0,
+		// 	scale: 1,
+		// 	x: 0,
+		// 	y: 0,
+		// },
+        
+		// {
+		// 	// Live2D模型本地文件路径
+		// 	path: "/pio/models/live2d/喜多/归去来兮.model3.json",
+		// 	// 动作声音音量 范围0~1，默认 0（静音）
+		// 	volume: 0,
+		// 	// 模型缩放比例
+		// 	scale: 1,
+		// 	// X轴偏移，范围 -2~2，正值向右
+		// 	x: 0,
+		// 	// Y轴偏移，范围 -2~2，正值向上
+		// 	y: 0,
+		// },
+		// {
+		// 	// Live2D模型本地文件路径
+		// 	path: "/pio/models/live2d/umaru/model.json",
+		// 	// 动作声音音量 范围0~1，默认 0（静音）
+		// 	volume: 0,
+		// 	// 模型缩放比例
+		// 	scale: 1,
+		// 	// X轴偏移，范围 -2~2，正值向右
+		// 	x: 0,
+		// 	// Y轴偏移，范围 -2~2，正值向上
+		// 	y: 0,
+		// },
 		{
 			// Live2D模型本地文件路径
-			path: "/pio/models/live2d/snow_miku/model.json",
+			path: "/pio/models/live2d/bilibili-22/index.json",
 			// 动作声音音量 范围0~1，默认 0（静音）
 			volume: 0,
 			// 模型缩放比例
@@ -98,14 +143,6 @@ export const live2dWidgetConfig: Live2DWidgetConfig = {
 			// X轴偏移，范围 -2~2，正值向右
 			x: 0,
 			// Y轴偏移，范围 -2~2，正值向上
-			y: 0,
-		},
-		{
-			// 外部直连模型
-			path: "https://model.hacxy.cn/cat-black/model.json",
-			volume: 0,
-			scale: 1,
-			x: 0,
 			y: 0,
 		},
 	],
@@ -138,16 +175,16 @@ export const live2dWidgetConfig: Live2DWidgetConfig = {
 				label: "休眠",
 				action: "sleep",
 			},
-			{
-				icon: "mdi:swap-horizontal",
-				label: "切换模型",
-				action: "switchModel",
-			},
-			{
-				icon: "mdi:github",
-				label: "GitHub",
-				action: "github",
-			},
+			// {
+			// 	icon: "mdi:swap-horizontal",
+			// 	label: "切换模型",
+			// 	action: "switchModel",
+			// },
+			// {
+			// 	icon: "mdi:github",
+			// 	label: "GitHub",
+			// 	action: "github",
+			// },
 		],
 		// 菜单对齐方式
 		align: "right" as const,
@@ -157,7 +194,9 @@ export const live2dWidgetConfig: Live2DWidgetConfig = {
 		// 气泡开关
 		enable: true,
 		// 初始欢迎消息
-		welcomeMessage: ["你好呀！", "欢迎来到我的世界！"],
+		welcomeMessage: ["你好呀！", 
+			            //  "欢迎来到我的世界！"
+		                ],
 		// 循环提示内容
 		messages: [
 			"有什么需要帮助的吗？",
@@ -166,9 +205,9 @@ export const live2dWidgetConfig: Live2DWidgetConfig = {
 			"记得按时休息哦！",
 		],
 		// 文字显示时间（ms）
-		duration: 3000,
+		duration: 5000,
 		// 提示气泡切换间隔（ms）
-		interval: 6000,
+		interval: 10000,
 		// 位置偏移量（px），基于默认位置（模型正上方居中）进行微调
 		offset: {
 			x: 0, // 正值右移，负值左移
