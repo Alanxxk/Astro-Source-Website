@@ -33,9 +33,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 友链
-	links.push(LinkPresets.Friends);
-
 	// 留言板
 	links.push(LinkPresets.Guestbook);
 
@@ -65,6 +62,9 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			// 打赏
 			LinkPresets.Sponsor,
 
+			// 友链
+			LinkPresets.Friends,
+			
 			// 关于页面
 			LinkPresets.About,
 		],
@@ -77,30 +77,144 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		icon: "material-symbols:link",
 		// 子菜单
 		children: [
+			// {
+			// 	name: "GitHub",
+			// 	url: "https://github.com/CuteLeaf/Firefly",
+			// 	external: true,
+			// 	icon: "fa7-brands:github",
+			// },
+			// {
+			// 	name: "Gitee",
+			// 	url: "https://gitee.com/CuteLeaf/Firefly",
+			// 	external: true,
+			// 	icon: "fa7-brands:gitee",
+			// },
+			// {
+			// 	name: "QQ交流群",
+			// 	url: "https://qm.qq.com/q/ZGsFa8qX2G",
+			// 	external: true,
+			// 	icon: "fa7-brands:qq",
+			// },
+			// {
+			// 	name: "Firefly文档",
+			// 	url: "https://docs-firefly.cuteleaf.cn",
+			// 	external: true,
+			// 	icon: "material-symbols:docs",
+			// },
+			//内网
+			{
+				name: "Bilibili",
+				url: "https://space.bilibili.com/629069256?spm_id_from=333.1007.0.0",
+				external: true,
+				icon: "fa7-brands:bilibili",
+			},
+			{
+				name: "CSDN",
+				url: "https://blog.csdn.net/Alan_xxk?spm=1000.2115.3001.5343",
+				external: true,
+				icon: "simple-icons:csdn",
+			},
+			{
+				name: "知乎",
+				url: "https://www.zhihu.com/people/xxk-74-98",
+				external: true,
+				icon: "simple-icons:zhihu",
+			},
+			//外网—学术
+			{
+				name: "Stack Overflow",
+				url: "https://stackoverflow.com/users/32066616/xxk-xxk?tab=profile",
+				external: true,
+				icon: "simple-icons:stackoverflow",
+			},
 			{
 				name: "GitHub",
-				url: "https://github.com/CuteLeaf/Firefly",
+				url: "https://github.com/Alanxxk",
 				external: true,
 				icon: "fa7-brands:github",
 			},
 			{
-				name: "Gitee",
-				url: "https://gitee.com/CuteLeaf/Firefly",
+				name: "Hugging Face",
+				url: "https://huggingface.co/Alanxxk",
 				external: true,
-				icon: "fa7-brands:gitee",
+				icon: "simple-icons:huggingface",
 			},
 			{
-				name: "QQ交流群",
-				url: "https://qm.qq.com/q/ZGsFa8qX2G",
+				name: "Pinterest",
+				url: "https://www.pinterest.com/alanxxkmikasa/",
 				external: true,
-				icon: "fa7-brands:qq",
+				icon: "fa7-brands:pinterest",
+			},
+			//外网—媒体
+			{
+				name: "YouTube",
+				url: "https://www.youtube.com/channel/UCSmG58-YIUVchDo9eEgPMwg",
+				external: true,
+				icon: "simple-icons:youtube",
 			},
 			{
-				name: "Firefly文档",
-				url: "https://docs-firefly.cuteleaf.cn",
+				name: "Instagram",
+				url: "https://www.instagram.com/xxk7680/",
 				external: true,
-				icon: "material-symbols:docs",
+				icon: "simple-icons:instagram",
 			},
+			{
+				name: "Snapchat",
+				url: "https://www.snapchat.com/@alan_xxk",
+				external: true,
+				icon: "fa7-brands:snapchat",
+			},
+			//外网—联系
+			{
+				name: "Facebook",
+				url: "https://www.facebook.com/profile.php?id=61559231013943",
+				external: true,
+				icon: "fa7-brands:facebook",
+			},
+			{
+				name: "X-Twitter",
+				url: "https://x.com/xxkxxk619587",
+				external: true,
+				icon: "fa7-brands:x-twitter",
+			},
+			{
+				name: "Reddit",
+				url: "https://www.reddit.com/user/Delicious-Guess732/",
+				external: true,
+				icon: "fa7-brands:reddit",
+			},
+			{
+				name: "WhatsApp-Group",
+				url: "https://chat.whatsapp.com/JuTFUqI1y0g8k0U21yOFqU",
+				external: true,
+				icon: "fa7-brands:whatsapp",
+			},
+			//外网—游戏
+			{
+				name: "Discord-Group",
+				url: "https://discord.com/channels/997898972746223777/997898972746223780",
+				external: true,
+				icon: "simple-icons:discord",
+			},
+			
+			{
+				name: "Twitch",
+				url: "https://www.twitch.tv/alanxxks",
+				external: true,
+				icon: "fa7-brands:twitch",
+			},
+			// {
+			//   name: "LinkedIn",
+			//   url: "mailto:Alan_xxk@foxmail.com?subject=网站联系&body=你好，我从网站了解到...",
+			//   external: true,
+			//   icon: "fa7-brands:linkedin",
+			// },
+			// {
+			//   name: "line",
+			//   url: "https://chat.whatsapp.com/JuTFUqI1y0g8k0U21yOFqU",
+			//   external: true,
+			//   icon: "fa7-brands:line",
+			// },
 		],
 	});
 

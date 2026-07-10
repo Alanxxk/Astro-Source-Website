@@ -11,7 +11,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	showInNavbar: true,
 
 	// 使用方式："meting" 使用 Meting API，"local" 使用本地音乐列表
-	mode: "meting",
+	mode: "local",
 
 	// 默认音量 (0-1)
 	volume: 0.7,
@@ -49,11 +49,46 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	// lrc: "[00:00.00]歌词内容...",
 	local: {
 		playlist: [
+			// {
+			// 	name: "使一颗心免于哀伤",
+			// 	artist: "知更鸟 / HOYO-MiX / Chevy",
+			// 	url: "/assets/music/使一颗心免于哀伤-哼唱.mp3",
+			// 	cover: "/assets/music/cover/109951169585655912.webp",
+			// 	lrc: "",
+			// },
 			{
-				name: "使一颗心免于哀伤",
-				artist: "知更鸟 / HOYO-MiX / Chevy",
-				url: "/assets/music/使一颗心免于哀伤-哼唱.mp3",
-				cover: "/assets/music/cover/109951169585655912.webp",
+				name: "非法入境",
+				artist: "汪佩蓉",
+				url: "/assets/music/Alanxxk_material/mp3_lrc/非法入境 - 汪佩蓉.mp3",
+				cover: "/assets/music/Alanxxk_material/cover/It's You.jpg",
+				lrc: "/assets/music/Alanxxk_material/mp3_lrc/非法入境 - 汪佩蓉.lrc",
+			},
+			{
+				name: "飞机场的10:30",
+				artist: "陶喆",
+				url: "/assets/music/Alanxxk_material/mp3_lrc/飞机场的1030 - 陶喆.mp3",
+				cover: "/assets/music/Alanxxk_material/cover/David Tao.jpg",
+				lrc: "/assets/music/Alanxxk_material/mp3_lrc/飞机场的1030 - 陶喆.lrc",
+			},
+			{
+				name: "赛丽亚的旅馆",
+				artist: "Dungeon and Fighter",
+				url: "/assets/music/Alanxxk_material/mp3_lrc/赛丽亚的旅馆 (ACT.5-大转移前) - gate new - DNF 地下城与勇士.mp3",
+				cover: "/assets/music/Alanxxk_material/cover/Dungeon and Fighter.jpg",
+				lrc: "/assets/music/Alanxxk_material/mp3_lrc/赛丽亚的旅馆 (ACT.5-大转移前) - gate new - DNF 地下城与勇士.lrc",
+			},
+			{
+				name: "纯音乐",
+				artist: "Lofi_Kitty",
+				url: "/assets/music/Alanxxk_material/mp3_lrc/Lofi_Kitty.mp3",
+				cover: "/assets/music/Alanxxk_material/cover/Lofi_Kitty.png",
+				lrc: "",
+			},
+			{
+				name: "纯音乐",
+				artist: "AI",
+				url: "/assets/music/Alanxxk_material/mp3_lrc/YT-AI.mp3",
+				cover: "/assets/music/Alanxxk_material/cover/YT-AI.webp",
 				lrc: "",
 			},
 		],

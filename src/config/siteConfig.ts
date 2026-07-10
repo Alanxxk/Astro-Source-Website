@@ -63,7 +63,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-			src: "/favicon/利威尔_Avatar_Transparent.png",
+			src: "/assets/images/Alanxxk_material/利威尔_Avatar_Transparent.png",
 			// "/favicon/favicon.ico",
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",

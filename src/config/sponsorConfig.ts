@@ -57,7 +57,7 @@ export const sponsorConfig: SponsorConfig = {
 		},
 		{
 			name: "Github",
-			icon: "fa6-brands:github",
+			icon: "fa7-brands:github",
 			qrCode: "",
 			link: "https://github.com/Alanxxk/Astro-Source-Website",
 			description: "点个Star就是最大的支持",

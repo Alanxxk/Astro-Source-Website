@@ -47,12 +47,12 @@ export const profileConfig: ProfileConfig = {
 		// },
 		{
 			name: "QQ Mail",
-			icon: "fa6-solid:envelope",
+			icon: "fa7-solid:envelope",
 			url: "mailto:Alan_xxk@foxmail.com?subject=网站联系&body=你好，我从网站了解到...",
 		},
 		{
 			name: "RSS",
-			icon: "fa6-solid:rss",
+			icon: "fa7-solid:rss",
 			url: "/rss/",
 		},
 		{
@@ -65,14 +65,14 @@ export const profileConfig: ProfileConfig = {
 			icon: "mdi:microsoft-outlook",
 			url: "mailto:Alan_xxk@outlook.com?subject=网站联系&body=你好，我从网站了解到...",
 		},
-		{
-			name: "Proton Mail",
-			icon: "simple-icons:proton",
-			url: "mailto:Alan_xxk@proton.me?subject=网站联系&body=你好，我从网站了解到...",
-		},
+		// {
+		// 	name: "Proton Mail",
+		// 	icon: "simple-icons:proton",
+		// 	url: "mailto:Alan_xxk@proton.me?subject=网站联系&body=你好，我从网站了解到...",
+		// },
 		{
 			name: "Telegram",
-			icon: "fa6-brands:telegram",
+			icon: "fa7-brands:telegram",
 			url: "https://web.telegram.org/a/#5163711212",
 		},
 	],
