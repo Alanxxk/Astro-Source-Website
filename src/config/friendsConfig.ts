@@ -35,7 +35,7 @@ export const friendsConfig: FriendLink[] = [
   {
     title: "Alanxxk",
     imgurl:
-      "https://github.com/Alanxxk/Astro-Source-Website_Archive_v1/blob/main/public/assets/images/Alanxxk_material/Alan-xxk.jpg",
+      "https://raw.githubusercontent.com/Alanxxk/Astro-Source-Website_Archive_v1/main/public/assets/images/Alanxxk_material/Alan-xxk.jpg",
     desc: "为迷茫的技术旅人点亮星光。（博主旧站,用作纪念,已停止更新维护）",
     siteurl: "https://alanxxk-blog-archive-v1.netlify.app/",
     tags: ["Blog"],
