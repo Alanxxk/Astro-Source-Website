@@ -32,6 +32,16 @@ export const friendsConfig: FriendLink[] = [
     weight: 8,
     enabled: true,
   },
+  {
+    title: "Alanxxk",
+    imgurl:
+      "https://github.com/Alanxxk/Astro-Source-Website_Archive_v1/blob/main/public/assets/images/Alanxxk_material/Alan-xxk.jpg",
+    desc: "为迷茫的技术旅人点亮星光。（博主旧站,用作纪念,已停止更新维护）",
+    siteurl: "https://alanxxk-blog-archive-v1.netlify.app/",
+    tags: ["Blog"],
+    weight: 7, // 权重，数字越大排序越靠前
+    enabled: true, // 是否启用
+  },
 ];
 
 // 获取启用的友链并按权重排序
