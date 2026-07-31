@@ -45,6 +45,9 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			// 友链
 			LinkPresets.Friends,
 			
+			// 动态
+			LinkPresets.Dynamic,
+			
 			// // 留言
 			// LinkPresets.Guestbook,
 		],
@@ -56,8 +59,8 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "#",
 		icon: "material-symbols:person",
 		children: [
-			// 动态
-			LinkPresets.Dynamic,
+			// // 动态
+			// LinkPresets.Dynamic,
 
 			// 相册
 			LinkPresets.Gallery,
