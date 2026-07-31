@@ -39,9 +39,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "#",
 		icon: "material-symbols:group",
 		children: [
-			// 友链
-			LinkPresets.Friends,
-
 			// 留言
 			LinkPresets.Guestbook,
 		],
@@ -76,6 +73,9 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			// 打赏
 			LinkPresets.Sponsor,
 			
+            // 友链
+			LinkPresets.Friends,
+
 			// 关于页面
 			LinkPresets.About,
 		],
