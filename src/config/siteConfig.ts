@@ -62,12 +62,8 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-<<<<<<< HEAD
 			src: "/assets/images/Alanxxk_material/利威尔_Avatar_Transparent.png",
 			// "/favicon/favicon.ico",
-=======
-			src: "/favicon/firefly-32.png",
->>>>>>> upstream/master
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",
 			// 可选，图标大小
@@ -88,14 +84,8 @@ export const siteConfig: SiteConfig = {
 		// 使用 Astro 图标库时不需要设置 valueDark，图标会自动跟随主题亮暗色切换
 		logo: {
 			type: "image",
-<<<<<<< HEAD
 			value: "assets/images/Alanxxk_material/三笠_Avatar_Transparent.png",
 			alt: "🏠",
-=======
-			value: "assets/images/logo/firefly-light.png",
-			valueDark: "assets/images/logo/firefly-dark.png",
-			alt: "🍀",
->>>>>>> upstream/master
 		},
 		// 导航栏标题
 		title: "Alanxxk",
