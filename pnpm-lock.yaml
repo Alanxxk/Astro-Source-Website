@@ -41,15 +41,6 @@ importers:
       '@fancyapps/ui':
         specifier: ^6.1.14
         version: 6.1.14
-      '@fontsource-variable/jetbrains-mono':
-        specifier: ^5.2.8
-        version: 5.2.8
-      '@fortawesome/fontawesome-free':
-        specifier: ^7.3.0
-        version: 7.3.0
-      '@iconify-json/fa6-solid':
-        specifier: ^1.2.4
-        version: 1.2.4
       '@iconify-json/fa7-brands':
         specifier: ^1.2.4
         version: 1.2.4
