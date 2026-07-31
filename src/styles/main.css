@@ -587,3 +587,16 @@ html {
   @apply text-sm text-(--text-secondary) text-center mb-2;
 }
 
+
+
+@font-face {
+  font-family: 'DreamHanSans';
+  src: url('/assets/fonts/DreamHanSans-W23.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: 'DreamHanSans', sans-serif;
+  font-weight: 400;
+}
