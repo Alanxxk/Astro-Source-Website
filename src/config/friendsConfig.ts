@@ -53,7 +53,7 @@ export const friendsConfig: FriendLink[] = [
 	{
 		title: "Alanxxk",
 		imgurl: "https://qh.qlogo.cn/g?b=qq&nk=377329149&s=160",
-		desc: "为迷茫的技术旅人点亮星光（旧站纪念）",
+		desc: "（2026.7.11旧站纪念）为迷茫的技术旅人点亮星光",
 		siteurl: "https://alanxxk-blog-archive-v1.netlify.app/",
 		tags: ["Blog"],
 		weight: 7, // 权重，数字越大排序越靠前
