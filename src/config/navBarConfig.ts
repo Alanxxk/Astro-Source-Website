@@ -33,19 +33,22 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// //社交及其子菜单
-	// links.push({
-	// 	name: "社交",
-	// 	url: "#",
-	// 	icon: "material-symbols:group",
-	// 	children: [
-	// 		// 留言
-	// 		LinkPresets.Guestbook,
-	// 	],
-	// });
-
 	// 留言
     links.push(LinkPresets.Guestbook);
+
+	//社交及其子菜单
+	links.push({
+		name: "社交",
+		url: "#",
+		icon: "material-symbols:group",
+		children: [
+			// 友链
+			LinkPresets.Friends,
+			
+			// // 留言
+			// LinkPresets.Guestbook,
+		],
+	});
 
 	// 我的及其子菜单
 	links.push({
@@ -75,9 +78,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		children: [
 			// 打赏
 			LinkPresets.Sponsor,
-			
-            // 友链
-			LinkPresets.Friends,
 
 			// 关于页面
 			LinkPresets.About,
