@@ -25,13 +25,17 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [1.4.Sandboxie沙盒测试](#14sandboxie沙盒测试)
   - [1.5.Winrar压缩软件](#15winrar压缩软件)
   - [1.6.LocalSend局域传输](#16localsend局域传输)
-  - [1.7.EasyShare互传](#17easyshare互传)
+  - [1.7.EasyShare局域传输](#17easyshare局域传输)
   - [1.8.UU远程](#18uu远程)
+  - [1.9.Sunshine+皎月连](#19sunshine皎月连)
   - [1.9.Coodesker桌面整理](#19coodesker桌面整理)
   - [1.10.TranslucentTB任务栏美化](#110translucenttb任务栏美化)
   - [1.11.Pixpin截图标记](#111pixpin截图标记)
   - [1.12.Quicker快工具箱](#112quicker快工具箱)
   - [1.13.Folo消息聚合](#113folo消息聚合)
+  - [1.14.格式工厂](#114格式工厂)
+  - [1.15.Microsoft Edge](#115microsoft-edge)
+  - [1.16.Google Chrome](#116google-chrome)
 - [2.翻墙软件](#2翻墙软件)
   - [2.1.Clash for Windows](#21clash-for-windows)
   - [2.2.Clash Meta / Mihomo Party](#22clash-meta--mihomo-party)
@@ -44,7 +48,8 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [3.4.ReadPaper论文管理](#34readpaper论文管理)
   - [3.5.Git](#35git)
   - [3.6.GitKraken](#36gitkraken)
-  - [3.7.SiYuan笔记](#37siyuan笔记)
+  - [3.7.Obsidian笔记记录](#37obsidian笔记记录)
+  - [3.7.SiYuan笔记记录](#37siyuan笔记记录)
   - [3.8.Beyond Compare文件对比](#38beyond-compare文件对比)
 - [4.媒体管理](#4媒体管理)
   - [4.1.Anytxt内容查找](#41anytxt内容查找)
@@ -77,7 +82,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [6.4.SteamCommunity302商店加速](#64steamcommunity302商店加速)
   - [6.5.MuMu模拟器](#65mumu模拟器)
   - [6.6.Soundpad音效播放](#66soundpad音效播放)
-  - [6.7.Flash Browser浏览器](#67flash-browser浏览器)
+  - [6.7.Clean Flash Player纯净Flash](#67clean-flash-player纯净flash)
 - [7.新机测试](#7新机测试)
   - [7.1.CPU-Z处理器信息](#71cpu-z处理器信息)
   - [7.2.GPU-Z显卡信息](#72gpu-z显卡信息)
@@ -89,6 +94,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [7.8.FixWin修复错误](#78fixwin修复错误)
   - [7.9.Office Tool Plus一键破解](#79office-tool-plus一键破解)
   - [7.10.Kaspersky卡巴杀毒](#710kaspersky卡巴杀毒)
+  - [7.11.图吧工具箱](#711图吧工具箱)
 - [8.网络云盘](#8网络云盘)
   - [8.1.百度网盘](#81百度网盘)
   - [8.2.阿里云盘](#82阿里云盘)
@@ -98,7 +104,27 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [8.6.迅雷云盘](#86迅雷云盘)
   - [8.7.UC云盘](#87uc云盘)
   - [8.8.腾讯微云](#88腾讯微云)
-  - [8.9.坚果云](#89坚果云)
+  - [8.13.115生活](#813115生活)
+  - [8.14.中国移动云盘](#814中国移动云盘)
+  - [8.15.天翼云盘](#815天翼云盘)
+  - [8.16.城通网盘](#816城通网盘)
+  - [8.17.UC浏览器](#817uc浏览器)
+  - [8.18.比特球云盘](#818比特球云盘)
+  - [8.19.联通云盘](#819联通云盘)
+  - [8.17.坚果云](#817坚果云)
+  - [8.18.豆包](#818豆包)
+  - [8.9.OneDrive](#89onedrive)
+  - [8.10.GoogleDrive](#810googledrive)
+  - [8.11.Pikpak](#811pikpak)
+  - [8.12.Dropbox](#812dropbox)
+  - [8.13.MEGAsync](#813megasync)
+  - [8.14.BoxDrive](#814boxdrive)
+  - [8.15.CloudMe](#815cloudme)
+  - [8.16.Sync](#816sync)
+  - [8.17.Sefile](#817sefile)
+  - [8.18.pCloudDrive](#818pclouddrive)
+  - [8.19.FebBox](#819febbox)
+  - [8.20.CloudDrive2](#820clouddrive2)
 - [9.工程软件](#9工程软件)
   - [9.1.Solidworks三维建模](#91solidworks三维建模)
   - [9.2.Workbench有限元分析](#92workbench有限元分析)
@@ -113,11 +139,39 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [9.11.VMwareWorkstation虚拟机](#911vmwareworkstation虚拟机)
   - [9.12.GXworks2梯形图PLC](#912gxworks2梯形图plc)
   - [9.13.ideaMaker3D打印机切片](#913ideamaker3d打印机切片)
+  - [9.14.Git](#914git)
+  - [9.15.NoMachine](#915nomachine)
+- [10.团队管理](#10团队管理)
+  - [10.1.飞书](#101飞书)
 
 # 1.功能增强
 ## 1.1.HiBit Uninstaller卸载软件
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.2.Dism++清理垃圾
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.3.Google拼音输入
+- ***名称***：
+- ***作用***：可以在微软输入法无法兼容的软件中使用的输入法
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.4.Sandboxie沙盒测试
 - ***名称***：Sandboxie
 - ***作用***：创建沙箱空间安全运行软件或程序
@@ -139,11 +193,68 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   2. **备用破解**：https://zhuanlan.zhihu.com/p/1939816269000978726，https://tieba.baidu.com/p/10027399342，https://www.cnblogs.com/Gantz/p/17692420.html，https://www.bilibili.com/opus/1096004894372921365，https://blog.csdn.net/SUSU769/article/details/150513434，https://zhuanlan.zhihu.com/p/692561504，https://cloud.tencent.com/developer/article/2583936，https://www.bilibili.com/video/BV1efeGzcE7r/?vd_source=c9864b89dea103396edbd37a5b5133af，https://blog.csdn.net/wzk1681106/article/details/151179380
 - ***使用***：
 ## 1.6.LocalSend局域传输
-## 1.7.EasyShare互传
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
+## 1.7.EasyShare局域传输
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.8.UU远程
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
+## 1.9.Sunshine+皎月连
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.9.Coodesker桌面整理
+- ***名称***：酷呆桌面
+- ***作用***：
+- ***版本***：
+- ***链接***：
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.10.TranslucentTB任务栏美化
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.11.Pixpin截图标记
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 1.12.Quicker快工具箱
 - ***名称***：Quicker
 - ***作用***：提供动作库便于快捷操作
@@ -162,11 +273,70 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***安装***：点击.exe文件，自动安装到C盘
 - ***设置***：登陆账号，设置简体中文语言
 - ***使用***：
+## 1.14.格式工厂
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
+## 1.15.Microsoft Edge
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
+## 1.16.Google Chrome
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 # 2.翻墙软件
 ## 2.1.Clash for Windows
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 2.2.Clash Meta / Mihomo Party
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 2.3.Clash Verge
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 2.4.V2rayN
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 # 3.学习辅助
 ## 3.1.Eudic欧路词典
 - ***名称***：欧路词典
@@ -183,9 +353,58 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   5. **备用破解**：未尝试过。[Github-EudicPro](https://github.com/Veinsvx/eudicPro)，[Mdict论坛](https://www.pdawiki.com/forum/thread-41281-1-1.html)，[IT技术之家](https://www.ittel.cn/archives/29610.html)，[亿破姐](https://www.ypojie.com/10149.html)
 - ***使用***：
 ## 3.2.Anki卡片背诵
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 3.3.VScode编辑器
+- ***名称***：Visual Studio Code
+- ***作用***：
+- ***版本***：1.134（编辑日期2026.8.22+经常更新）
+- ***链接***：https://code.visualstudio.com/
+- ***优势***：微软出品，轻量化，开源免费，有网页版，可创建虚拟环境，方便使用Git和Github（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+  1. **软件设置**：
+    - 自动保存：“软件左下角齿轮-设置-Files:AutoSave选择afterDelay”
+    - 自动猜测文件编码类型：“软件左下角齿轮-设置-勾选Files:AutoGuessEncoding”
+    - 丝滑光标移动和闪烁：“软件左下角齿轮-设置-Editor:CursorBlinking选择smooth”
+    - 按住Ctrl缩放字体大小：“软件左下角齿轮-设置-勾选Editor:MouseWheelZoom”
+    - 自动折行：“软件左下角齿轮-设置-Editor:WordWrap选择on”
+    - 括号对高亮：“软件左下角齿轮-设置-勾选Editor:BracketPairColorization”
+    - 获取代码补全建议：“软件左下角齿轮-设置-取消勾选Editor:Suggest:SnippetsPreventQuickSuggestions+Editor:AcceptSuggestionOnEnter选择smart+Editor:SuggestSelection选择recentlyUsed”
+    - 窗口样式：“软件左下角齿轮-设置-Window:DialogStyle选择custom”
+    - 右侧显示红色断点位置：“软件左下角齿轮-设置-勾选Debug:ShowBreakpointsInOverviewRuler”
+    - 文件缩进：“软件左下角齿轮-设置-workbench:tree.indent输入15”
+    - 缩进辅助线：“软件左下角齿轮-设置-workbench:tree.renderIndentGuides选择always+workbench:colorCustomizations选择颜色”
+    - 代码格式化：“软件左下角齿轮-设置-勾选Editor:FormatOnSave”
+- ***使用***：
+  1. **安装扩展**：Chinese简体中文，C/C++-Extension-Pack语法辅助，Python语法辅助，Markdown-All-in-One语法辅助，Markdown Preview Enhanced语法格式预览，WakaTime记录统计使用时间，Remote-SSH本地操作远程连接，Jupyter分块运行代码，Cmake-Tools跨平台编译工具，Prettier-Code-formatter统一代码格式，Material-Icon-Theme/vscode-icon文件图标，Error-Lens行侧显示错误，Path-Intellisense路径补全，Image-preview悬浮预览路径图像，One-Dark-Pro/GitHub-Theme/Dracula-Official软件主题，CodeSnap/Polacode代码截图工具，Code-Spell-Checker英词拼写错误检查，Bookmarks书签，TODO-Highlight高亮注释的TODO，GBK-to-UTF8-for-vscode文件编码转换，Hex-Editor查看文件十六编码，Doxygen-Documentation-Generator生成和查看函数注释格式，Code-Runner一键运行代码，Competitive-Programming-Helper便捷输入测试代码输出，var-translate-en中文翻译成英文（在线），“翻译(英汉词典)”（离线），“会了吧”分析工程中的单词，Git-Graph分支图形可视化，Project-Manager工程打开对应扩展，Vim模拟器，Learn-Vim帮助熟悉vim命令，Rainbow-CSV数据文件不同颜色区分行列，autopep8格式化python代码，PlatformlIO简单单片机芯片集合插件，Live-Server临时前端浏览器，IntelliCode自动代码补全，ROS机器人操作系统辅助，ROS2机器人操作系统辅助，Msg-Language-Support消息ROS文件辅助，URDF机器人描述格式辅助，Paste-Image在markdown粘贴图片，Comment-Anchors注释锚点，Pylance代码python补全，Auto-Open-Markdown-Preview自动打开markdown预览，Docker管理本地Docker，Jest测试框架，YAML语法辅助，XML语法辅助，GitLens代码行显示Git信息，Git-History图形化显示提交历史，Simple-React-Snippets生成代码片段，WSL连接到win的linux子系统，Postman发送请求测试，Thunder-Client发送请求测试，REST-Client发送请求测试，MySQL管理数据库工具，SQLite管理数据库工具，SQL-Formatter格式化SQL代码，Redis管理数据库工具，VUE语法辅助，ES7+React语法辅助，Auto-Rename-Tag前后标签同步修改，JavaScript-Debugger代码Java调试，CSS-Peek查看CSS样式，ESLint代码Java检查，Console-Ninja输出显示在代码行，Quokka-js实时Java沙盒，Angular-Snippets生成代码片段，Bracket-Pair-Colorizer配对括号不同颜色，indent-rainbow缩进彩虹显示，Color-Highlight显示十六进制颜色，any-rule提供常用正则表达式，Import-Cost导入头文件容量，Code-translate英词翻译，STM32CubeIDE单片机芯片（官方），stm32-for-vscode单片机芯片（社区），C/C++-Compile-Run，better-C++-syntax，python-snippets
+  2. **AI扩展**：BaiDu-Comate，Lingma，Trae-AI，CodeGeeX，Github-Copilot，Tabnine，Blackbox-AI，AWS-Toolkit
+  3. **娱乐扩展**：vscode-pets小宠物，VSC-Netease-Music网易云音乐，游戏300之坦克大战，Thief-Book，Rainbow-Fart，韭菜盒子，Qwerty-Learner打字练习器
+  4. **字体扩展**：FiraCode
 ## 3.4.ReadPaper论文管理
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 3.5.Git
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 3.6.GitKraken
 - ***名称***：Gitkraken
 - ***作用***：可视化管理Git仓库版本
@@ -202,10 +421,19 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       0.0.0.0 gloapi.gitkraken.com
       0.0.0.0 release.axocdn.com
     ```
-  2. **破解**：破解后私人仓库也可以推拉。[根据破解教程](https://github.com/wanZzz6/Modules-Learn/blob/master/%E6%8A%80%E6%9C%AF/Gitkraken%20%E6%9C%80%E6%96%B0%E7%89%88v9%E3%80%81v10%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B.md)。关闭软件，输入cmd打开终端，输入`npm install --global yarn`，(可随便移动)移动破解文件夹里面的`GitkrakenCrack`文件夹到`C:\Users\用户名\AppData\Local\gitkraken`后打开，打开终端输入`yarn install`、`yarn build`和`yarn gitcracken patcher`，等待破解完成后可以删除`GitkrakenCrack`文件夹。验证方法是打开GitKraken软件，查看右下角是否为PRO  
+  2. **破解**：破解后私人仓库也可以推拉。[根据破解教程](https://github.com/wanZzz6/Modules-Learn/blob/master/%E6%8A%80%E6%9C%AF/Gitkraken%20%E6%9C%80%E6%96%B0%E7%89%88v9%E3%80%81v10%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B.md)。关闭软件，输入cmd打开终端，输入`npm install --global yarn`，(可随便移动)移动破解文件夹里面`GitkrakenCrack`的`Gitkraken`文件夹到`C:\Users\用户名\AppData\Local\gitkraken`后打开，打开终端输入`yarn install`、`yarn build`和`yarn gitcracken patcher`，等待破解完成后可以删除`GitkrakenCrack`文件夹。验证方法是打开GitKraken软件，查看右下角是否为PRO  
   3. **汉化**：[根据汉化教程](https://github.com/yk47g/gitkraken-chinese)。关闭软件，移动汉化文件夹到`C:\Users\用户名\AppData\Local\gitkraken\app-11.6.0\resources\app.asar.unpacked\src`目录替代原`strings.json`。验证方法是打开GitKraken软件后显示中文
 - ***使用***：
-## 3.7.SiYuan笔记
+## 3.7.Obsidian笔记记录
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
+## 3.7.SiYuan笔记记录
 - ***名称***：Beyond Compare
 - ***作用***：对比两个文件内容显示不同
 - ***版本***：5.0.0.29773（编辑日期2025.12.05+缓慢更新）
@@ -229,6 +457,14 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***使用***：
 # 4.媒体管理
 ## 4.1.Anytxt内容查找
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 4.2.Everything文件查找
 - ***名称***：Everything
 - ***作用***：快速查找文件
@@ -292,7 +528,23 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***安装***：
 - ***设置***：在电脑中搜索“默认应用”，设置软件是视频的默认打开方式
 ## 4.6.PureCode视频播放
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 4.7.MpvConfig视频播放
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 4.8.LXmusic在线音乐
 - ***名称***：LXmusic
 - ***作用***：在线听各平台音乐
@@ -304,7 +556,23 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   1. **音源**：[](https://github.com/sundys/lxmusiclist),[](https://fastly.jsdelivr.net/gh/Huibq/keep-alive/render_api.js),[](https://github.com/piko017/-LX-luoxue_yinyuan/diffs/1?base_sha=6b35139b917e83ca770894406562d8e7c38b8c50&head_user=2061360308&name=master&pull_number=3&qualified_name=refs%2Fheads%2Fmaster&sha1=6b35139b917e83ca770894406562d8e7c38b8c50&sha2=f0e2cee0c021c17877b6d27646af70a4f2d9fe91&short_path=b335630&unchanged=expanded&w=false),[](https://github.com/wzh15802/lxmusic),[](https://github.com/lyswhut/lx-music-desktop/issues/1769)
 - ***使用***：
 ## 4.9.Foobar音乐播放
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 4.10.MusicTag乐标补全
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 4.11.NeatDM嗅探下载
 - ***名称***：NeatDM
 - ***作用***：网页资源嗅探并直接下载和接管浏览器下载并加速
@@ -324,6 +592,14 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***设置***：
 - ***使用***：
 ## 4.13.Billfish素材管理
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 4.14.QuickLook文件快看
 - ***名称***：QuickLook
 - ***作用***：快速查看文件内容
@@ -371,12 +647,51 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***使用***：
 # 5.按键显示
 ## 5.1.BongoCat桌宠
-
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 5.2.Keyviz按键
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 5.3.NohBoard键盘
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 5.4.PowerToy鼠标
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 # 6.游戏工具
 ## 6.1.Controller Companion手柄转键
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 6.2.MSI Afterburner监控硬件
 - ***名称***：MSI Afterburner
 - ***作用***：调节风扇速度，监控并显示硬件状态和帧数
@@ -388,8 +703,32 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   1. **
 - ***使用***：
 ## 6.3.Steam++商店加速
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 6.4.SteamCommunity302商店加速
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 6.5.MuMu模拟器
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 6.6.Soundpad音效播放
 - ***名称***：Soundpad
 - ***作用***：按下按键则播放音效
@@ -402,26 +741,115 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   2. **音效素材**：[UwUpad](https://uwupad.me/)
   3. **备份破解**：[版本4.0.3](https://www.bilibili.com/video/BV1o94y157Qy/?spm_id_from=333.1387.homepage.video_card.click&vd_source=c9864b89dea103396edbd37a5b5133af)，[版本3.4.1](https://www.bilibili.com/video/BV1Wc411S7Sm/?vd_source=c9864b89dea103396edbd37a5b5133af)，[版本3.4.1](https://www.bilibili.com/video/BV1rxYJeYEa7/?spm_id_from=333.337.search-card.all.click&vd_source=c9864b89dea103396edbd37a5b5133af)
 - ***使用***：
-## 6.7.Flash Browser浏览器
-- ***名称***：Flash Browser
-- ***作用***：内置Flash，可以游玩Flash小游戏
+## 6.7.Clean Flash Player纯净Flash
+- ***名称***：Clean Flash Player
+- ***作用***：可以游玩Flash文件的小游戏
 - ***版本***：0.8.1（编辑日期2025.12.05+经常更新）
-- ***链接***：https://github.com/radubirsan/FlashBrowser/releases（绿色版：在[B站视频](https://www.bilibili.com/video/BV1kR4y1f7tG/?spm_id_from=333.337.search-card.all.click)的[简介](https://bqnm.lanzouw.com/ivpyJ0g8ggkh)）
+- ***链接***：
 - ***优势***：（相比其他同类型软件的优点）
 - ***安装***：选择安装路径，勾选创建快捷方式
 - ***设置***：
 - ***使用***：
 # 7.新机测试
 ## 7.1.CPU-Z处理器信息
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.2.GPU-Z显卡信息
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.3.CrystalDiskInfo硬盘信息
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.4.CrystalDiskMark硬盘速度
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.5.DiskGenius硬盘设置
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.6.Ventoy制作U盘
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.7.WinToGo移动系统
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.8.FixWin修复错误
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.9.Office Tool Plus一键破解
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 ## 7.10.Kaspersky卡巴杀毒
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
+## 7.11.图吧工具箱
+- ***名称***：
+- ***作用***：
+- ***版本***：
+- ***链接***：无
+- ***优势***：（相比其他同类型软件的优点）
+- ***安装***：
+- ***设置***：
+- ***使用***：
 # 8.网络云盘
 ## 8.1.百度网盘
 ## 8.2.阿里云盘
@@ -439,7 +867,28 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 ## 8.6.迅雷云盘
 ## 8.7.UC云盘
 ## 8.8.腾讯微云
-## 8.9.坚果云
+## 8.13.115生活
+## 8.14.中国移动云盘
+## 8.15.天翼云盘
+## 8.16.城通网盘
+## 8.17.UC浏览器
+## 8.18.比特球云盘
+## 8.19.联通云盘
+## 8.17.坚果云
+## 8.18.豆包
+## 8.9.OneDrive
+## 8.10.GoogleDrive
+## 8.11.Pikpak
+## 8.12.Dropbox
+## 8.13.MEGAsync
+## 8.14.BoxDrive
+## 8.15.CloudMe
+## 8.16.Sync
+## 8.17.Sefile
+## 8.18.pCloudDrive
+## 8.19.FebBox
+## 8.20.CloudDrive2
+
 
 # 9.工程软件
 ## 9.1.Solidworks三维建模
@@ -455,4 +904,9 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 ## 9.11.VMwareWorkstation虚拟机
 ## 9.12.GXworks2梯形图PLC
 ## 9.13.ideaMaker3D打印机切片
+## 9.14.Git
+## 9.15.NoMachine
+
+# 10.团队管理
+## 10.1.飞书
 

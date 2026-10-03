@@ -6,7 +6,7 @@ published: 2026-01-15               #发布时间
 updated: 2026-02-11                 #更新时间
 pinned: false                       #置顶
 tags: [Hardware, Tools, Guide]  #标签
-category: "硬件操作"                 #类别（使用文件夹名称）
+category: "理论知识"                 #类别（使用文件夹名称）
 slug: Mechanics机械硬件             #自定义链接（使用标题名称）
 
 # sourceLink: ""                    #原链接
