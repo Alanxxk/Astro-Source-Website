@@ -1,6 +1,6 @@
 ---
-title: Solidworks三维建模               #标题
-description: Windows新电脑必装软件介绍  #描述
+title: Solidworks三维建模            #标题
+description: 设计机械结构的三维建模软件  #描述
 draft: false                        #草稿未发布
 published: 2025-12-05               #发布时间
 updated: 2025-03-03                 #更新时间

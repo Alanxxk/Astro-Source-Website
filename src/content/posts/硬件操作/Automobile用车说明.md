@@ -5,7 +5,7 @@ draft: false                         #草稿未发布
 published: 2026-02-03               #发布时间
 updated: 2026-02-03                 #更新时间
 pinned: false                       #置顶
-tags: [Car, Hardware, Software, Guide]  #标签
+tags: [Hardware, Software, Guide]  #标签
 category: "硬件操作"                 #类别（使用文件夹名称）
 slug: Automobile用车说明             #自定义链接（使用标题名称）
 

@@ -5,7 +5,7 @@ draft: true                        #草稿未发布
 published: 2026-01-15               #发布时间
 updated: 2025-01-15                 #更新时间
 pinned: false                       #置顶
-tags: [Hardware, Tools, Guide]  #标签
+tags: [Hardware, Tools, Tutorial]  #标签
 category: "硬件操作"                 #类别（使用文件夹名称）
 slug: Casio计算器的使用方法                 #自定义链接（使用标题名称）
 

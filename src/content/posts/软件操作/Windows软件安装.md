@@ -36,15 +36,15 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [1.14.格式工厂](#114格式工厂)
   - [1.15.Microsoft Edge](#115microsoft-edge)
   - [1.16.Google Chrome](#116google-chrome)
-- [2.翻墙软件](#2翻墙软件)
-  - [2.1.Clash for Windows](#21clash-for-windows)
-  - [2.2.Clash Meta / Mihomo Party](#22clash-meta--mihomo-party)
-  - [2.3.Clash Verge](#23clash-verge)
+- [2.魔法软件](#2魔法软件)
+  - [2.1.Clash Verge Rev](#21clash-verge-rev)
+  - [2.2.Clash Party/Mihomo Party](#22clash-partymihomo-party)
+  - [2.3.FIClash](#23ficlash)
   - [2.4.V2rayN](#24v2rayn)
 - [3.学习辅助](#3学习辅助)
   - [3.1.Eudic欧路词典](#31eudic欧路词典)
   - [3.2.Anki卡片背诵](#32anki卡片背诵)
-  - [3.3.VScode编辑器](#33vscode编辑器)
+  - [3.3.Zotero论文管理](#33zotero论文管理)
   - [3.4.ReadPaper论文管理](#34readpaper论文管理)
   - [3.5.Git](#35git)
   - [3.6.GitKraken](#36gitkraken)
@@ -69,7 +69,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [4.15.VidBee视频下载](#415vidbee视频下载)
   - [4.16.qBittorrent磁链种子](#416qbittorrent磁链种子)
   - [4.17.Motrix磁链种子](#417motrix磁链种子)
-  - [4.18.Kdenlive视频剪辑](#418kdenlive视频剪辑)
+  - [4.18.](#418)
 - [5.按键显示](#5按键显示)
   - [5.1.BongoCat桌宠](#51bongocat桌宠)
   - [5.2.Keyviz按键](#52keyviz按键)
@@ -146,11 +146,11 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 
 # 1.功能增强
 ## 1.1.HiBit Uninstaller卸载软件
-- ***名称***：
-- ***作用***：
+- ***名称***：HiBit Uninstaller
+- ***作用***：完全卸载删除软件及其注册表等等
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://www.hibitsoft.ir/Uninstaller.html
+- ***优势***：免费无广无账号轻量化，卸载基本干净包含删除注册表动态库和临时文件，可以监控软件安装之后所有文件位置，基本不会误删其他文件，有注册表清理和启动项管理和垃圾文件清理等等功能
 - ***安装***：
 - ***设置***：
 - ***使用***：
@@ -167,17 +167,17 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***名称***：
 - ***作用***：可以在微软输入法无法兼容的软件中使用的输入法
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://zh.wikipedia.org/wiki/%E8%B0%B7%E6%AD%8C%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95
+- ***优势***：免费无广无账号，能在一些老软件上打字，但是停更而没有新词库
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 1.4.Sandboxie沙盒测试
 - ***名称***：Sandboxie
-- ***作用***：创建沙箱空间安全运行软件或程序
+- ***作用***：创建独立隔离的沙箱空间安全运行软件或程序
 - ***版本***：5.71.8（编辑日期2025.12.05+经常更新）
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://sandboxie-plus.com/
+- ***优势***：开源无广无账号而且标准版免费，轻量化，沙盒运行的数据是独立区域所以数据可保留和快速删除，可以进行软件多开，相比虚拟机(Windows专业版沙盒本质是虚拟机且不能存储数据和只能开一个沙盒)更轻便不占资源但穿透可能性大一些
 - ***安装***：选择语言，选择安装目录
 - ***设置***：点击“配置-系统设置”按钮，取消勾选“启动Sandboxie Control”和“快捷方式图标”和“在沙箱中运行菜单”，在开始菜单找到`Sandboxie Control`并创建快捷方式
 - ***使用***：
@@ -193,29 +193,29 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   2. **备用破解**：https://zhuanlan.zhihu.com/p/1939816269000978726，https://tieba.baidu.com/p/10027399342，https://www.cnblogs.com/Gantz/p/17692420.html，https://www.bilibili.com/opus/1096004894372921365，https://blog.csdn.net/SUSU769/article/details/150513434，https://zhuanlan.zhihu.com/p/692561504，https://cloud.tencent.com/developer/article/2583936，https://www.bilibili.com/video/BV1efeGzcE7r/?vd_source=c9864b89dea103396edbd37a5b5133af，https://blog.csdn.net/wzk1681106/article/details/151179380
 - ***使用***：
 ## 1.6.LocalSend局域传输
-- ***名称***：
-- ***作用***：
+- ***名称***：LocalSend
+- ***作用***：使用多对多(无需连接设备热点)局域网在不同设备之间传输文件
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://localsend.org/zh-CN
+- ***优势***：开源免费无广无账号，去中心化服务器的局域网传输，传输速度较快(关闭加密传输更快)，可以使用链接或二维码发送给无软件设备，完善的跨平台跨设备
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 1.7.EasyShare局域传输
-- ***名称***：
-- ***作用***：
+- ***名称***：互传
+- ***作用***：使用点对点(连接设备热点)局域网在不同设备之间传输文件
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://es.vivo.com.cn/
+- ***优势***：免费无广无账号，去中心化服务器的局域网传输，有网页端，支持手机端互传文件，电脑端可以直接访问手机端所有文件，但是每次都要重新连接和无法电脑传电脑
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 1.8.UU远程
-- ***名称***：
-- ***作用***：
+- ***名称***：网易UU远程
+- ***作用***：使用点对点连接远程控制不同设备
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://uuyc.163.com/
+- ***优势***：免费无广无账号，平台仅缺少Linux
 - ***安装***：
 - ***设置***：
 - ***使用***：
@@ -230,28 +230,28 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***使用***：
 ## 1.9.Coodesker桌面整理
 - ***名称***：酷呆桌面
-- ***作用***：
-- ***版本***：
-- ***链接***：
+- ***作用***：使用桌面格子整理归纳桌面图标
+- ***版本***：1.0
+- ***链接***：https://www.coodesker.com/purchase
 - ***优势***：（相比其他同类型软件的优点）
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 1.10.TranslucentTB任务栏美化
-- ***名称***：
-- ***作用***：
+- ***名称***：TranslucentTB
+- ***作用***：设置Windows正下方的任务栏透明效果
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：在Microsoft store搜索下载（可自动更新），https://github.com/TranslucentTB/TranslucentTB
+- ***优势***：开源免费无广无账号轻量化
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 1.11.Pixpin截图标记
-- ***名称***：
-- ***作用***：
+- ***名称***：Pixpin
+- ***作用***：功能强大的截图工具
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://pixpin.com/zh-hans/
+- ***优势***：大部分功能免费无广，上下/左右长截图，离线文本识别，窗口和元素识别，聚光灯，水印，截图圆角，录制GIF，录制视频，锁定/缩小贴图，钉图的标注处理
 - ***安装***：
 - ***设置***：
 - ***使用***：
@@ -300,50 +300,31 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***安装***：
 - ***设置***：
 - ***使用***：
-# 2.翻墙软件
-## 2.1.Clash for Windows
-- ***名称***：
-- ***作用***：
-- ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
-- ***安装***：
-- ***设置***：
-- ***使用***：
-## 2.2.Clash Meta / Mihomo Party
-- ***名称***：
-- ***作用***：
-- ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
-- ***安装***：
-- ***设置***：
-- ***使用***：
-## 2.3.Clash Verge
-- ***名称***：
-- ***作用***：
-- ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
-- ***安装***：
-- ***设置***：
-- ***使用***：
+# 2.魔法软件
+## 2.1.Clash Verge Rev
+- ***名称***：Clash Verge Rev
+- ***链接***：https://www.clashverge.dev/
+- ***优势***：占用小
+- ***使用***：导入订阅-选择线路-启动软件
+## 2.2.Clash Party/Mihomo Party
+- ***名称***：Clash Party
+- ***链接***：https://clashparty.org/
+- ***优势***：新手友好但占用较高
+## 2.3.FIClash
+- ***名称***：FIClash
+- ***链接***：https://chen08209.github.io/FlClash/zh/
+- ***优势***：有安卓移动端
 ## 2.4.V2rayN
-- ***名称***：
-- ***作用***：
-- ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
-- ***安装***：
-- ***设置***：
-- ***使用***：
+- ***名称***：V2rayN
+- ***链接***：https://v2rayn.2dust.link/
+- ***优势***：内核和协议最完整但不能使用Clash订阅格式
 # 3.学习辅助
 ## 3.1.Eudic欧路词典
 - ***名称***：欧路词典
 - ***作用***：导入自定义词典并查词学习英语
 - ***版本***：25.8.0（编辑日期2025.12.05+经常更新）
 - ***链接***：https://www.eudic.net/v4/en/app/download
-- ***优势***：（相比其他同类型软件的优点）
+- ***优势***：划词查询，自定义导入字典和阅读文本
 - ***安装***：选择安装路径
 - ***设置***：
   1. **软件设置**：勾选“关闭窗口时最小化到状态栏”，勾选“自动查询剪贴板内单词”，勾选“输入单词时即时提示解释”，选择“词库自动展开数目”是“所有词典”，勾选“查找单词后自动发音”，勾选“鼠标取词后自动发音”，取词方式选择“鼠标悬停+Ctrl”，取词延时输入1，选择“关闭自动更新”
@@ -353,55 +334,41 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   5. **备用破解**：未尝试过。[Github-EudicPro](https://github.com/Veinsvx/eudicPro)，[Mdict论坛](https://www.pdawiki.com/forum/thread-41281-1-1.html)，[IT技术之家](https://www.ittel.cn/archives/29610.html)，[亿破姐](https://www.ypojie.com/10149.html)
 - ***使用***：
 ## 3.2.Anki卡片背诵
-- ***名称***：
-- ***作用***：
+- ***名称***：Anki
+- ***作用***：主动回忆间隔重复的记忆卡片软件
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://apps.ankiweb.net/，https://ankiweb.net/about
+- ***优势***：开源免费无广（iOS付费），轻量化，科学算法对抗艾宾浩斯遗忘曲线，制作记忆牌组卡片可以放置文本图片音频视频，有别人制作好的共享牌组，丰富插件拓展功能，完善的跨平台跨设备，可以同步数据
+- ***安装***：
+- ***设置***：
+  1. 欧陆词典：插件-获取插件-Dict2Anki(代码1284759083)-欧陆词典的生词导入到Anki中
+  2. 浏览器：插件-获取插件-AnkiConnect(代码2055492159)，浏览器安装在线词典助手浏览器插件-Service Options-Data Export-选择AnkiConnect
+  3. 共享牌组：添加/导出-共享牌组列表-Chinese，获取牌组-下载牌组-双击下载文件导入牌组
+- ***使用***：
+## 3.3.Zotero论文管理
+- ***名称***：
+- ***作用***：管理和阅读本地论文的软件
+- ***版本***：
+- ***链接***：https://www.zotero.org/
+- ***优势***：开源免费无广无账号，支持离线阅读支持三方同步协议（文件都在本地），丰富插件拓展功能
 - ***安装***：
 - ***设置***：
 - ***使用***：
-## 3.3.VScode编辑器
-- ***名称***：Visual Studio Code
-- ***作用***：
-- ***版本***：1.134（编辑日期2026.8.22+经常更新）
-- ***链接***：https://code.visualstudio.com/
-- ***优势***：微软出品，轻量化，开源免费，有网页版，可创建虚拟环境，方便使用Git和Github（相比其他同类型软件的优点）
-- ***安装***：
-- ***设置***：
-  1. **软件设置**：
-    - 自动保存：“软件左下角齿轮-设置-Files:AutoSave选择afterDelay”
-    - 自动猜测文件编码类型：“软件左下角齿轮-设置-勾选Files:AutoGuessEncoding”
-    - 丝滑光标移动和闪烁：“软件左下角齿轮-设置-Editor:CursorBlinking选择smooth”
-    - 按住Ctrl缩放字体大小：“软件左下角齿轮-设置-勾选Editor:MouseWheelZoom”
-    - 自动折行：“软件左下角齿轮-设置-Editor:WordWrap选择on”
-    - 括号对高亮：“软件左下角齿轮-设置-勾选Editor:BracketPairColorization”
-    - 获取代码补全建议：“软件左下角齿轮-设置-取消勾选Editor:Suggest:SnippetsPreventQuickSuggestions+Editor:AcceptSuggestionOnEnter选择smart+Editor:SuggestSelection选择recentlyUsed”
-    - 窗口样式：“软件左下角齿轮-设置-Window:DialogStyle选择custom”
-    - 右侧显示红色断点位置：“软件左下角齿轮-设置-勾选Debug:ShowBreakpointsInOverviewRuler”
-    - 文件缩进：“软件左下角齿轮-设置-workbench:tree.indent输入15”
-    - 缩进辅助线：“软件左下角齿轮-设置-workbench:tree.renderIndentGuides选择always+workbench:colorCustomizations选择颜色”
-    - 代码格式化：“软件左下角齿轮-设置-勾选Editor:FormatOnSave”
-- ***使用***：
-  1. **安装扩展**：Chinese简体中文，C/C++-Extension-Pack语法辅助，Python语法辅助，Markdown-All-in-One语法辅助，Markdown Preview Enhanced语法格式预览，WakaTime记录统计使用时间，Remote-SSH本地操作远程连接，Jupyter分块运行代码，Cmake-Tools跨平台编译工具，Prettier-Code-formatter统一代码格式，Material-Icon-Theme/vscode-icon文件图标，Error-Lens行侧显示错误，Path-Intellisense路径补全，Image-preview悬浮预览路径图像，One-Dark-Pro/GitHub-Theme/Dracula-Official软件主题，CodeSnap/Polacode代码截图工具，Code-Spell-Checker英词拼写错误检查，Bookmarks书签，TODO-Highlight高亮注释的TODO，GBK-to-UTF8-for-vscode文件编码转换，Hex-Editor查看文件十六编码，Doxygen-Documentation-Generator生成和查看函数注释格式，Code-Runner一键运行代码，Competitive-Programming-Helper便捷输入测试代码输出，var-translate-en中文翻译成英文（在线），“翻译(英汉词典)”（离线），“会了吧”分析工程中的单词，Git-Graph分支图形可视化，Project-Manager工程打开对应扩展，Vim模拟器，Learn-Vim帮助熟悉vim命令，Rainbow-CSV数据文件不同颜色区分行列，autopep8格式化python代码，PlatformlIO简单单片机芯片集合插件，Live-Server临时前端浏览器，IntelliCode自动代码补全，ROS机器人操作系统辅助，ROS2机器人操作系统辅助，Msg-Language-Support消息ROS文件辅助，URDF机器人描述格式辅助，Paste-Image在markdown粘贴图片，Comment-Anchors注释锚点，Pylance代码python补全，Auto-Open-Markdown-Preview自动打开markdown预览，Docker管理本地Docker，Jest测试框架，YAML语法辅助，XML语法辅助，GitLens代码行显示Git信息，Git-History图形化显示提交历史，Simple-React-Snippets生成代码片段，WSL连接到win的linux子系统，Postman发送请求测试，Thunder-Client发送请求测试，REST-Client发送请求测试，MySQL管理数据库工具，SQLite管理数据库工具，SQL-Formatter格式化SQL代码，Redis管理数据库工具，VUE语法辅助，ES7+React语法辅助，Auto-Rename-Tag前后标签同步修改，JavaScript-Debugger代码Java调试，CSS-Peek查看CSS样式，ESLint代码Java检查，Console-Ninja输出显示在代码行，Quokka-js实时Java沙盒，Angular-Snippets生成代码片段，Bracket-Pair-Colorizer配对括号不同颜色，indent-rainbow缩进彩虹显示，Color-Highlight显示十六进制颜色，any-rule提供常用正则表达式，Import-Cost导入头文件容量，Code-translate英词翻译，STM32CubeIDE单片机芯片（官方），stm32-for-vscode单片机芯片（社区），C/C++-Compile-Run，better-C++-syntax，python-snippets
-  2. **AI扩展**：BaiDu-Comate，Lingma，Trae-AI，CodeGeeX，Github-Copilot，Tabnine，Blackbox-AI，AWS-Toolkit
-  3. **娱乐扩展**：vscode-pets小宠物，VSC-Netease-Music网易云音乐，游戏300之坦克大战，Thief-Book，Rainbow-Fart，韭菜盒子，Qwerty-Learner打字练习器
-  4. **字体扩展**：FiraCode
 ## 3.4.ReadPaper论文管理
 - ***名称***：
-- ***作用***：
+- ***作用***：一站集成式论文软件（集合论文搜索，AI辅助阅读，文献管理，学术交流社区）
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://readpaper.com/new
+- ***优势***：免费无广，不支持离线阅读不支持三方同步协议（文件都在服务器上），有网页版
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 3.5.Git
 - ***名称***：
-- ***作用***：
+- ***作用***：分布式版本管理系统（版本追踪，历史回溯，分支开发，多人协作，离线工作）
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://git-scm.com/
+- ***优势***：开源免费无广无账号，本地有完整版本历史，操作指针而速度极快，内部使用哈希校验难被更改，生态庞大，完善的跨平台跨设备，但不适合管理大文件
 - ***安装***：
 - ***设置***：
 - ***使用***：
@@ -426,19 +393,19 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***使用***：
 ## 3.7.Obsidian笔记记录
 - ***名称***：
-- ***作用***：
+- ***作用***：本地Markdown文件的个人知识管理软件
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://obsidian.md/
+- ***优势***：免费无广轻量化，丰富插件拓展功能，完善的跨平台跨设备，笔记之间双向链接，图谱视图，makedown文本文件
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 3.7.SiYuan笔记记录
-- ***名称***：Beyond Compare
-- ***作用***：对比两个文件内容显示不同
+- ***名称***：SiYuan
+- ***作用***：本地文件的个人知识管理软件
 - ***版本***：5.0.0.29773（编辑日期2025.12.05+缓慢更新）
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：在Microsoft store搜索下载（可自动更新），https://b3log.org/siyuan/
+- ***优势***：开源免费无广，完善的跨平台跨设备，笔记之间双向链接，块及引用可以直接存储显示图片GIF视频等等
 - ***安装***：
 - ***设置***：
   1. **软件设置**：
@@ -458,37 +425,37 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 # 4.媒体管理
 ## 4.1.Anytxt内容查找
 - ***名称***：
-- ***作用***：
+- ***作用***：本地文件内容查找工具
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://anytxt.net/
+- ***优势***：免费无广，体积小启动快，几乎支持所有文件类型的内容搜索
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 4.2.Everything文件查找
 - ***名称***：Everything
-- ***作用***：快速查找文件
+- ***作用***：本地文件名快速查找工具
 - ***版本***：1.4.1.1030（编辑日期2025.12.05+经常更新）
-- ***链接***：https://www.gitkraken.com/
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://www.voidtools.com/zh-cn/
+- ***优势***：免费无广，体积小启动快，查找快
 - ***安装***：选择安装路径，取消勾选“开机自动启动”，其他默认
 - ***设置***：无
 - ***使用***：输入文件/文件夹名称可以快速搜索，双击可以打开
 ## 4.3.HoneyView图片查看
 - ***名称***：HoneyView
-- ***作用***：打开图片工具
+- ***作用***：兼容广泛图像格式的软件
 - ***版本***：5.53（编辑日期2025.12.16+经常更新）
 - ***链接***：https://www.bandisoft.com/honeyview/
-- ***优势***：快速打开图片（[ImageGlass](https://imageglass.org/releases):能对图片进行更多处理,程序较美观,但是不能设置为默认打开方式）
+- ***优势***：免费无广轻量化，快速打开图片（[ImageGlass](https://imageglass.org/releases):能对图片进行更多处理,程序较美观,但是不能设置为默认打开方式）
 - ***安装***：选择安装路径，勾选三个选项
 - ***设置***：打开win11的“设置”界面，进入“应用-默认应用-Honeyview”，把所有格式都改为由Honeyview打开
 - ***使用***：输入文件/文件夹名称可以快速搜索，双击可以打开
 ## 4.4.OBS Studio录屏直播
 - ***名称***：OBS Studio
-- ***作用***：快速查找文件
+- ***作用***：视频录制和实时直播串流软件
 - ***版本***：（编辑日期2025.12.05+经常更新）
-- ***链接***：
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://obsproject.com/
+- ***优势***：开源免费无广无账号，专业的图音处理，丰富插件拓展功能，丰富的跨平台
 - ***安装***：
 - ***设置***：
   1. **软件设置**：
@@ -521,18 +488,18 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***使用***：
 ## 4.5.Potplayer视频播放
 - ***名称***：Potplayer
-- ***作用***：可使用多格式的视频播放器
+- ***作用***：多格式和丰富解码器的视频播放器
 - ***版本***：（编辑日期2025.12.05+经常更新）
-- ***链接***：
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://potplayer.tv/
+- ***优势***：免费无广无账号，解码能力强，功能丰富
 - ***安装***：
 - ***设置***：在电脑中搜索“默认应用”，设置软件是视频的默认打开方式
 ## 4.6.PureCode视频播放
-- ***名称***：
-- ***作用***：
+- ***名称***：完美解码
+- ***作用***：集成播放器和解码器渲染器核心的视频播放器
 - ***版本***：
 - ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***优势***：免费无广无账号，硬解能力强，无需调参的优秀画质
 - ***安装***：
 - ***设置***：
 - ***使用***：
@@ -547,13 +514,14 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***使用***：
 ## 4.8.LXmusic在线音乐
 - ***名称***：LXmusic
-- ***作用***：在线听各平台音乐
+- ***作用***：在线或下载聆听各平台音乐
 - ***版本***：（编辑日期2025.12.05+缓慢更新）
-- ***链接***：
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://lxmusic.toside.cn/
+- ***优势***：有桌面版和移动版，添加音源可以免费畅听各个平台歌曲
 - ***安装***：
 - ***设置***：
-  1. **音源**：[](https://github.com/sundys/lxmusiclist),[](https://fastly.jsdelivr.net/gh/Huibq/keep-alive/render_api.js),[](https://github.com/piko017/-LX-luoxue_yinyuan/diffs/1?base_sha=6b35139b917e83ca770894406562d8e7c38b8c50&head_user=2061360308&name=master&pull_number=3&qualified_name=refs%2Fheads%2Fmaster&sha1=6b35139b917e83ca770894406562d8e7c38b8c50&sha2=f0e2cee0c021c17877b6d27646af70a4f2d9fe91&short_path=b335630&unchanged=expanded&w=false),[](https://github.com/wzh15802/lxmusic),[](https://github.com/lyswhut/lx-music-desktop/issues/1769)
+  1. **音源**：[Github收藏数最多的音源仓库](https://github.com/pdone/lx-music-source)
+  2. [](https://github.com/sundys/lxmusiclist),[](https://fastly.jsdelivr.net/gh/Huibq/keep-alive/render_api.js),[](https://github.com/piko017/-LX-luoxue_yinyuan/diffs/1?base_sha=6b35139b917e83ca770894406562d8e7c38b8c50&head_user=2061360308&name=master&pull_number=3&qualified_name=refs%2Fheads%2Fmaster&sha1=6b35139b917e83ca770894406562d8e7c38b8c50&sha2=f0e2cee0c021c17877b6d27646af70a4f2d9fe91&short_path=b335630&unchanged=expanded&w=false),[](https://github.com/wzh15802/lxmusic),[](https://github.com/lyswhut/lx-music-desktop/issues/1769)
 - ***使用***：
 ## 4.9.Foobar音乐播放
 - ***名称***：
@@ -584,10 +552,10 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***使用***：
 ## 4.12.Wiztree磁盘管理
 - ***名称***：Wiztree
-- ***作用***：分析磁盘或文件夹内容的占用空间大小
+- ***作用***：分析磁盘或文件夹的文件内容占用的空间大小
 - ***版本***：4.28（编辑日期2025.12.05+缓慢更新）
-- ***链接***：https://www.diskanalyzer.com/download
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://www.diskanalyzer.com/
+- ***优势***：个人免费无广无账号轻量化，检索快速，可视化树状图，过滤搜索
 - ***安装***：勾选创建桌面快捷方式，选择安装路径
 - ***设置***：
 - ***使用***：
@@ -636,49 +604,41 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***安装***：选择安装路径
 - ***设置***：设置下载目录，“下载协议”勾选迅雷链接
 - ***使用***：
-## 4.18.Kdenlive视频剪辑
-- ***名称***：Kdenlive
-- ***作用***：剪辑视频，添加音频，制作特效
-- ***版本***：25.08.3（编辑日期2025.12.05+经常更新/缓慢更新/停止更新）
-- ***链接***：https://kdenlive.org/zh-cn/download/
-- ***优势***：免费可商用，占用小，功能相对较强
-- ***安装***：选择安装路径，在安装目录找到.exe文件并创建快捷方式
-- ***设置***：
-- ***使用***：
+## 4.18.
 # 5.按键显示
 ## 5.1.BongoCat桌宠
 - ***名称***：
-- ***作用***：
+- ***作用***：桌宠形式可视化鼠标键盘输入
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://bongocat.pet/（新版C语言重构），https://github.com/ayangweb/BongoCat（旧版停更许久）
+- ***优势***：开源免费无广无账号轻量化，丰富的跨平台，可使用现成或导入自定义模型
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 5.2.Keyviz按键
 - ***名称***：
-- ***作用***：
+- ***作用***：屏幕弹出形式可视化鼠标键盘输入
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://github.com/zetaloop/keyviz（汉化版），https://keyviz.org/（原版）
+- ***优势***：开源免费无广无账号轻量化，丰富的跨平台
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 5.3.NohBoard键盘
 - ***名称***：
-- ***作用***：
+- ***作用***：虚拟鼠标键盘形式可视化鼠标键盘输入
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：https://github.com/ThoNohT/NohBoard
+- ***优势***：开源免费无广无账号轻量化，支持自定义键盘布局和样式
 - ***安装***：
 - ***设置***：
 - ***使用***：
 ## 5.4.PowerToy鼠标
 - ***名称***：
-- ***作用***：
+- ***作用***：Windows系统的30+个增强工具集合
 - ***版本***：
-- ***链接***：无
-- ***优势***：（相比其他同类型软件的优点）
+- ***链接***：在Microsoft store搜索下载（可自动更新），https://learn.microsoft.com/zh-cn/windows/powertoys/
+- ***优势***：开源免费无广无账号，占用低
 - ***安装***：
 - ***设置***：
 - ***使用***：

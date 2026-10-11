@@ -1,7 +1,7 @@
 ---
 title: Linux软件安装               #标题
 description: Windows新电脑必装软件介绍  #描述
-draft: false                        #草稿未发布
+draft: true                        #草稿未发布
 published: 2025-12-05               #发布时间
 updated: 2025-12-05                 #更新时间
 pinned: false                       #置顶

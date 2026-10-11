@@ -1,11 +1,11 @@
 ---
-title: Win11基础设置               #标题
-description: Windows新电脑必装软件介绍  #描述
+title: Win11基础设置                 #标题
+description: Windows新系统推荐修改的设置  #描述
 draft: false                        #草稿未发布
 published: 2025-12-05               #发布时间
 updated: 2025-12-05                 #更新时间
 pinned: false                       #置顶
-tags: [Windows, Software, Crack]    #标签
+tags: [Windows, Software, Setting]    #标签
 category: "推荐软件"                 #类别（使用文件夹名称）
 slug: Win11基础设置                #自定义链接（使用标题名称）
 
@@ -93,6 +93,8 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 # 25.删输入法
 开始-设置-时间和语言-中文右边的三个点-语言选项-选择语言右边的三个点-删除
 
+# 25.安全中心
+搜索-Windows安全中心-应用和浏览器控制-智能应用控制设置-选择关闭（避免Windows乱关乱删东西）
 
 # 快捷键
 1. win+r = 命令窗口
@@ -102,8 +104,12 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 5. win+s = 搜索栏
 6. win+v = 历史剪切板
 7. win+L = 锁屏
-8. win+ctrl+L = 实时字幕
-9. shift+右键 = win10右键
+8. win+shift+s = 截图录屏
+9. win+ctrl+L = 实时字幕
+10. shift+右键 = win10右键
+11. alt+f1 = N卡全屏截图
+12. alt+f9 = N卡录屏
+13. alt+shift+f10 = N卡即时重放
 
 # 便携设计
 滚轮调节任务栏的音量
