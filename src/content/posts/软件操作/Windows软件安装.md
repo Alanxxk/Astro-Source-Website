@@ -198,8 +198,9 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***版本***：
 - ***链接***：https://localsend.org/zh-CN
 - ***优势***：开源免费无广无账号，去中心化服务器的局域网传输，传输速度较快(关闭加密传输更快)，可以使用链接或二维码发送给无软件设备，完善的跨平台跨设备
-- ***安装***：
+- ***安装***：选择中文语言，选择安装位置，创建快捷方式
 - ***设置***：
+   1. 设备名称：设置-设备名称-更改名称-刷新服务器
 - ***使用***：
 ## 1.7.EasyShare局域传输
 - ***名称***：互传
@@ -520,8 +521,8 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - ***优势***：有桌面版和移动版，添加音源可以免费畅听各个平台歌曲
 - ***安装***：
 - ***设置***：
-  1. **音源**：[Github收藏数最多的音源仓库](https://github.com/pdone/lx-music-source)
-  2. [](https://github.com/sundys/lxmusiclist),[](https://fastly.jsdelivr.net/gh/Huibq/keep-alive/render_api.js),[](https://github.com/piko017/-LX-luoxue_yinyuan/diffs/1?base_sha=6b35139b917e83ca770894406562d8e7c38b8c50&head_user=2061360308&name=master&pull_number=3&qualified_name=refs%2Fheads%2Fmaster&sha1=6b35139b917e83ca770894406562d8e7c38b8c50&sha2=f0e2cee0c021c17877b6d27646af70a4f2d9fe91&short_path=b335630&unchanged=expanded&w=false),[](https://github.com/wzh15802/lxmusic),[](https://github.com/lyswhut/lx-music-desktop/issues/1769)
+  1. **已测音源**：[Github收藏数最多的音源仓库](https://github.com/pdone/lx-music-source)（截止2026.10.24,在1.9.1版本测试仅有Flower,Grass,Xinghai有效）
+  2. **未测音源**：[1](https://github.com/sundys/lxmusiclist),[2](https://fastly.jsdelivr.net/gh/Huibq/keep-alive/render_api.js),[3](https://github.com/piko017/-LX-luoxue_yinyuan/diffs/1?base_sha=6b35139b917e83ca770894406562d8e7c38b8c50&head_user=2061360308&name=master&pull_number=3&qualified_name=refs%2Fheads%2Fmaster&sha1=6b35139b917e83ca770894406562d8e7c38b8c50&sha2=f0e2cee0c021c17877b6d27646af70a4f2d9fe91&short_path=b335630&unchanged=expanded&w=false),[4](https://github.com/wzh15802/lxmusic),[5](https://github.com/lyswhut/lx-music-desktop/issues/1769)
 - ***使用***：
 ## 4.9.Foobar音乐播放
 - ***名称***：
