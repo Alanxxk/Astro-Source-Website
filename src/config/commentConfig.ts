@@ -24,7 +24,7 @@ export const commentConfig: CommentConfig = {
 	waline: {
 		// waline 后端服务地址
 		// serverURL: "https://waline.vercel.app",
-		serverURL: "https://waline-alanxxk-blog-d2okauj7o-alan-xxks-projects.vercel.app/",
+		serverURL: "https://waline-alanxxk-blog.vercel.app/",
 		// 设置 Waline 评论系统语言
 		lang: "zh-CN",
 		// 设置 Waline 评论系统表情地址
