@@ -65,14 +65,14 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 				name: "飞机场的10:30",
 				artist: "陶喆",
 				url: "/assets/music/Alanxxk_material/mp3_lrc/飞机场的1030 - 陶喆.mp3",
-				cover: "/assets/music/Alanxxk_material/cover/LaLa首张创作专辑.jpg",
+				cover: "/assets/music/Alanxxk_material/cover/David Tao.jpg",
 				lrc: "/assets/music/Alanxxk_material/mp3_lrc/飞机场的1030 - 陶喆.lrc",
 			},
 			{
 				name: "一样的月光",
 				artist: "徐佳莹",
 				url: "/assets/music/Alanxxk_material/mp3_lrc/一样的月光 - 徐佳莹.mp3",
-				cover: "/assets/music/Alanxxk_material/cover/David Tao.jpg",
+				cover: "/assets/music/Alanxxk_material/cover/LaLa首张创作专辑.jpg",
 				lrc: "/assets/music/Alanxxk_material/mp3_lrc/一样的月光 - 徐佳莹.lrc",
 			},
 			{
