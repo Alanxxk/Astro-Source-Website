@@ -334,6 +334,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   4. **旧版破解**：旧版本。[根据破解论坛里面](https://forum.freemdict.com/t/topic/28687/214)的[159楼层](https://www.mediafire.com/folder/6nr2167qw1xaz/DLs)和[186楼层](https://pan.baidu.com/s/1vENYpF1nQqQ5PyNf8-WwEg?pwd=sn64)和[<u>216楼层</u>](https://gofile.io/d/cyml9J)和[227楼层](https://pan.baidu.com/share/init?surl=q_a5V8UDW3cEOpbsWKmA1g):spoiler[yuml]，[Youtube教学视频](https://www.youtube.com/watch?v=e62Fii9i6dk)。在安装欧路词典后，打开破解文件夹，点击`eudic-active.reg`注册表文件，删除eudic.exe并移动`eudic-active.exe`文件到欧路词典安装目录，打开`eudic-active.exe`文件，关闭自动更新和点击软件激活
   5. **备用破解**：未尝试过。[Github-EudicPro](https://github.com/Veinsvx/eudicPro)，[Mdict论坛](https://www.pdawiki.com/forum/thread-41281-1-1.html)，[IT技术之家](https://www.ittel.cn/archives/29610.html)，[亿破姐](https://www.ypojie.com/10149.html)
 - ***使用***：
+  1. 词典：我使用的是论坛里面新牛津英汉双解大词典+ODE glance（后面有时间再找贴出链接）
 ## 3.2.Anki卡片背诵
 - ***名称***：Anki
 - ***作用***：主动回忆间隔重复的记忆卡片软件
