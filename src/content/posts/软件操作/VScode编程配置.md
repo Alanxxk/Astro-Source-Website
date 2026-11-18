@@ -55,18 +55,18 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 3. 网页：[VSCode网页版](https://code.visualstudio.com/docs/remote/vscode-web)
 ## 3.3.软件设置
 1. 基本设置
-   - 自动保存：“软件左下角齿轮-设置-Files:AutoSave选择afterDelay”
-   - 自动猜测文件编码类型：“软件左下角齿轮-设置-勾选Files:AutoGuessEncoding”
-   - 丝滑光标移动和闪烁：“软件左下角齿轮-设置-Editor:CursorBlinking选择smooth”
-   - 按住Ctrl缩放字体大小：“软件左下角齿轮-设置-勾选Editor:MouseWheelZoom”
-   - 自动折行：“软件左下角齿轮-设置-Editor:WordWrap选择on”
-   - 括号对高亮：“软件左下角齿轮-设置-勾选Editor:BracketPairColorization”
-   - 获取代码补全建议：“软件左下角齿轮-设置-取消勾选Editor:Suggest:SnippetsPreventQuickSuggestions+Editor:AcceptSuggestionOnEnter选择smart+Editor:SuggestSelection选择recentlyUsed”
-   - 窗口样式：“软件左下角齿轮-设置-Window:DialogStyle选择custom”
-   - 右侧显示红色断点位置：“软件左下角齿轮-设置-勾选Debug:ShowBreakpointsInOverviewRuler”
-   - 文件缩进：“软件左下角齿轮-设置-workbench:tree.indent输入15”
-   - 缩进辅助线：“软件左下角齿轮-设置-workbench:tree.renderIndentGuides选择always+workbench:colorCustomizations选择颜色”
-   - 代码格式化：“软件左下角齿轮-设置-勾选Editor:FormatOnSave”
+   - 自动保存：“软件左下角齿轮-设置-Files：AutoSave选择afterDelay”
+   - 自动猜测文件编码类型：“软件左下角齿轮-设置-勾选Files：AutoGuessEncoding”
+   - 丝滑光标移动和闪烁：“软件左下角齿轮-设置-Editor：CursorBlinking选择smooth”
+   - 按住Ctrl缩放字体大小：“软件左下角齿轮-设置-勾选Editor：MouseWheelZoom”
+   - 自动折行：“软件左下角齿轮-设置-Editor：WordWrap选择on”
+   - 括号对高亮：“软件左下角齿轮-设置-勾选Editor：BracketPairColorization”
+   - 获取代码补全建议：“软件左下角齿轮-设置-取消勾选Editor：Suggest：SnippetsPreventQuickSuggestions+Editor：AcceptSuggestionOnEnter选择smart+Editor：SuggestSelection选择recentlyUsed”
+   - 窗口样式：“软件左下角齿轮-设置-Window：DialogStyle选择custom”
+   - 右侧显示红色断点位置：“软件左下角齿轮-设置-勾选Debug：ShowBreakpointsInOverviewRuler”
+   - 文件缩进：“软件左下角齿轮-设置-workbench：tree.indent输入15”
+   - 缩进辅助线：“软件左下角齿轮-设置-workbench：tree.renderIndentGuides选择always+workbench：colorCustomizations选择颜色”
+   - 代码格式化：“软件左下角齿轮-设置-勾选Editor：FormatOnSave”
 2. 配置文件
    - 作用：不同开发场景下可以切换配置实现不同的设置+扩展插件+快捷键+UI布局+任务+快捷代码片段
    - 准备：软件设置完成，扩展插件安装完成，设置快捷键，tasks.json配置完成，设置快捷代码片段
