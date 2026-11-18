@@ -1,6 +1,6 @@
 ---
 title: Algorithm算法原理             #标题
-description: 不同类型算法的原理剖析   #描述
+description: 不同类型算法的原理剖析（施工中）   #描述
 draft: false                        #草稿未发布
 published: 2026-08-26               #发布时间
 updated: 2026-08-26                 #更新时间

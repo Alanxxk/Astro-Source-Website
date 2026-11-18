@@ -30,6 +30,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
   - [2.2.操作方式](#22操作方式)
   - [2.3.基础常识](#23基础常识)
   - [2.4.常见问题](#24常见问题)
+- [3.耗材防潮密封](#3耗材防潮密封)
 
 # 1.3D打印机的硬件操作
 ## 1.1.简介
@@ -365,3 +366,15 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
    - 解决：
    - 详细：
 23. 
+
+# 3.耗材防潮密封
+1. 干燥剂：
+   - 氧化钙：吸水快，会发热，有粉尘，会膨胀，吸水总量较多
+   - 氯化钙/氯化镁：吸湿会液化糊化，容易污染耗材，晶枝会穿透容器，蒸汽导致金属元件腐蚀，吸水总量多
+   - 硅胶颗粒：吸湿后变色，80℃加热散湿循环利用，黄/橙色才无毒，易碎，吸水总量一般
+   - 分子筛：200℃加热散湿循环利用少量粉尘，3A才效果好，吸水总量少
+2. 干燥箱：
+   - 方/圆米桶：双轴承底杆比穿心悬空挂更稳
+   - 打印件：https://makerworld.com.cn/zh/models/1662812-san-yuan-cheng-ben-ji-zhi-mi-feng-fang-chao-gan-za?appSharePlatform=copy#profileId-1839679 / https://makerworld.com.cn/zh/models/2285225-yibox-zhi-jian-hao-cai-mi-feng-he#profileId-2576721 / https://makerworld.com/zh/models/1805712-compact-multi-use-case-version-3d-filament-dehumid?from=search#profileId-1925920 / https://makerworld.com/zh/models/794590#profileId-733534
+3. 密封袋：可以用气泵（自动/手动）抽真空，但是很可能漏气
+4. 烘干机：

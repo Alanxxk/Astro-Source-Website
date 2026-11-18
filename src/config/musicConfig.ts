@@ -76,6 +76,13 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 				lrc: "/assets/music/Alanxxk_material/mp3_lrc/赛丽亚的旅馆 (ACT.5-大转移前) - gate new - DNF 地下城与勇士.lrc",
 			},
 			{
+				name: "Better,Together,Forever",
+				artist: "Team Astro",
+				url: "/assets/music/Alanxxk_material/mp3_lrc/Better, Together, Forever - Team Astro.mp3",
+				cover: "/assets/music/Alanxxk_material/cover/Better, Together, Forever - Team Astro.jpg",
+				lrc: "",
+			},
+			{
 				name: "纯音乐",
 				artist: "Lofi_Kitty",
 				url: "/assets/music/Alanxxk_material/mp3_lrc/Lofi_Kitty.mp3",

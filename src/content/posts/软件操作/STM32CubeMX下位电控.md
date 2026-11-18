@@ -21,7 +21,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 - 使用STM32CubeMX快速配置STM32主控芯片功能，生成大部分库代码，从而避免自己手动编写代码配置主控芯片功能
 
 # 2.STM32三类代码
-1. 基于寄存器：程序直接配置寄存器
+1. 基于寄存器：程序直接配置寄存器，最大化性能
 2. 基于标准库：ST官方封装函数（现已被官方逐渐淘汰）（推荐学习底层逻辑）
    - htmresc文件夹：图标图片
    - Libraries文件夹：库函数文件
@@ -29,12 +29,12 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
    - Utilities文件夹：ST官方设计评估板的示例程序
    - Release_Notes：库函数发布文档版本说明
    - stm32_stdperiph_lib_um：使用手册
-3. 基于HAL库：图形化界面快速配置STM32（配置功能生成的代码）（推荐快速上手）
+3. 基于HAL库：封装寄存器操作而使用简单（配置功能生成的代码）（推荐快速上手）
 4. 基于LL库：轻量级寄存器操作（推荐高手提高性能）
 
 # 3.代码生成编辑
 1. STM32CubeMX
-   - STM32CubeMX图形化配置主控芯片生成HAL库代码
+   - STM32CubeMX图形化配置主控芯片生成初始化配置LL库或HAL库(推荐)代码，无需深入底层寄存器完成复杂配置，兼容多种开发工具
 2. STM32CubeMXIDE
    - 软件 = ST官方代码编辑器+内置STM32CubeMX
    - 特点：在一个软件中，完成芯片配置+代码生成+代码编辑+下载调试（需要勾选生成.hex文件）
@@ -44,28 +44,33 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
    - 具体设置请移步VSCode文章
 4. STM32CubeMX+Keil5(Crack)
    - 组合 = STM32CubeMX代码生成+Keil5代码编辑下载调试
-   - 特点：软件界面传统，插件生态薄弱
-   - 设置：
+   - 特点：可以模拟仿真。但软件界面传统，插件生态薄弱
+   - Keil5设置：
       1. 编译器等级：最低优化等级
-      2. 软件安装：Keil5基本上是同意和下一步和避免中文路径
-      3. 软件破解：Keil5管理员运行-菜单栏File-许可证License Management-复制CID-关闭系统音量和杀毒软件-打开注册机软件-粘贴CID和选择ARM和选择professional-点击Generate生成注册码-复制注册码-回到Keil5软件在LIC粘贴注册码-点击Add LIC添加注册码到软件中
-      4. 器件支持包：
+      2. 软件下载：https://www.keil.com/
+      3. 支持包下载：https://www.keil.arm.com/
+      4. 软件安装：Keil5基本上是同意和下一步和避免中文路径
+      5. 软件破解：Keil5管理员运行-菜单栏File-许可证License Management-复制CID-关闭系统音量和杀毒软件-打开注册机软件-粘贴CID和选择ARM和选择professional-点击Generate生成序列注册码-复制序列注册码-回到Keil5软件在New License ID Code位置粘贴-点击Add LIC添加注册码到软件中
+      6. 器件支持包：（Keil5将核心和芯片软件包分开了）
          - 软件外文件：在Keil网站下载器件支持包，双击安装Keil5对应的STM32_DFP.pack
-         - 软件内在线：工具栏的Pack Installer-左上角循环图标获取更新列表（左下角是正在获取的内容,右下角是进度）-选择对应的STM32型号系列-安装STM32_DFP文件
-      5. 软件破解：右键软件图标-以管理员身份运行-菜单栏的File-License Management-复制CID-打开注册机-粘贴CID-选择ARM-生成序列码-复制序列码-粘贴在New License ID Code位置-选择Add LIC
-      6. 新建工程：菜单栏的Project-New uVision Project-命名-选择STM32型号-关掉新建工程小助手-工程目录新建文件夹Start-复制粘贴外围寄存器描述头文件和配置时钟文件（位置在Libraries-CMSIS-CM3-DeviceSupport-ST-STM32型号系列）-复制粘贴启动文件（位置在Libraries-CMSIS-CM3-DeviceSupport-ST-STM32型号系列-startup-arm）-复制粘贴内核寄存器描述文件（位置在Libraries-CMSIS-CM3-CoreSupport）-左侧栏右键Target-选择Add Existing Files to Group-推荐命名与文件夹同名易辨认-添加Start文件夹的.c.h文件和一个启动文件（根据FLASH容量选择）-左侧栏文件小钥匙图标表示只读文件-工具栏选择Options for Target-选择C/C++-Include Paths添加头文件路径Start文件夹-工程目录新建文件夹User-左侧栏右键Target-选择Add Group-右键新建文件夹-选择Add New Item to Group-选择C文件-输入main名称-main.c文件空白处右键-选择Insert #include file-选择Start文件夹的stm32.h-编写main函数int main(void){while(1){}}-文件最后一行是空行（防止报警告）
-      7. 编程方式：（开启外设时钟+初始化配置外设参数+设置输入输出数据）
+         - 软件内在线：工具栏的Pack Installer-左上角循环图标获取更新列表（左下角是正在获取的内容,右下角是进度）-左侧选择对应的STM32型号系列-右侧选择安装/卸载STM32_DFP文件
+         - 检验安装成功：工具栏选择Options for Target-选择Device查看可以选择的设备
+      7. 导入编译器：安装编译器-工具栏选择File Extensions-Group-选择Folders/Extensions-在Use ARM Compiler后面的三点-选择Add another ARM Compiler Version to List-选择安装编译器的文件夹
+      8. 新建工程：菜单栏的Project-New uVision Project-命名-选择STM32型号-关掉新建工程小助手-工程目录新建文件夹Start-复制粘贴外围寄存器描述头文件和配置时钟文件（位置在Libraries-CMSIS-CM3-DeviceSupport-ST-STM32型号系列）-复制粘贴启动文件（位置在Libraries-CMSIS-CM3-DeviceSupport-ST-STM32型号系列-startup-arm）-复制粘贴内核寄存器描述文件（位置在Libraries-CMSIS-CM3-CoreSupport）-左侧栏右键Target-选择Add Existing Files to Group-推荐命名与文件夹同名易辨认-添加Start文件夹的.c.h文件和一个启动文件（根据FLASH容量选择）-左侧栏文件小钥匙图标表示只读文件-工具栏选择Options for Target-选择Target的ARM Compiler选择合适编译器-选择Output选择Create Executable并勾选Debug信息和生成文件和浏览信息选项-选择C/C++在Include Paths添加头文件路径Start文件夹-选择Debug在Use选择调试器(DAP选择CMSIS-DAP,Stlink选择ST-Link)和选择Setting查看连接调试器主控芯片-选择下载方式-选择Flash Download勾选三个-工程目录新建文件夹User-左侧栏右键Target-选择Add Group-右键新建文件夹-选择Add New Item to Group-选择C文件-输入main名称-main.c文件空白处右键-选择Insert #include file-选择Start文件夹的stm32.h-编写main函数int main(void){while(1){}}-文件最后一行是空行（防止报警告）
+      9. 编程方式：（开启外设时钟+初始化配置外设参数+设置输入输出数据）
          - 寄存器：查阅数据手册了解每个32位寄存器，设定2进制32位寄存器的16进制数值（4数=1数）
          - 标准库（函数内部包装了外设的寄存器使用方法）：工程目录新建文件夹Library-复制粘贴标准库的文件（位置在Libraries-STM32_StdPeriph_Driver-Inc和src）-左侧栏右键Target-选择Add Group-左侧栏右键Target-选择Add Existing Files to Group-添加Library文件夹的所有文件-工程目录打开User文件夹-复制粘贴标准库的包含所有头文件关系的头文件和中断函数文件（位置在Project-STM32_StdPeriph_Template-stm32_conf和stm32_it）-左侧栏同理添加到main文件位置-打开stm32.h头文件-复制条件宏命令的USE_STDPERIPH_DRIVER（定义宏字符串才能引用stm32_conf.h）-工具栏选择Options for Target-选择C/C++-粘贴在Define-Include Paths添加头文件路径User和Library文件夹-工具栏选择File Extensions-Group里下调包含main.c的文件夹（方便查看左侧栏）（此处也可以创建左侧栏文件夹和添加文件）
          - HAL库：暂无
-      8. 代码提示：<kbd>CTRL</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd>（需要设置电脑系统输入法按键配置取消勾选<kbd>CTRL</kbd>+<kbd>Space</kbd>中英切换）
-      9. 代码框选：<kbd>Alt</kbd>+鼠标左键
-      10. 辅助书签：工具栏的Bookmarks-工具栏功能分别是添加书签、跳转到上一个书签位置、跳转到下一个、清除所有书签
-      11. 移除文件：左侧栏-选中文件-右键-选中Remove File
-      12. 编译工程：工具栏的Build(F7)
-      13. 代码调试：工具栏的Configuration-选择Debug-Use Simulator仿真调试/Use STLink硬件实时调试-工具栏的Start/Stop Debug Session-左侧栏是寄存器和标志位而上侧栏是汇编语言-工具栏功能分别是复位、运行（可以点击行号旁空白设置断点）、停止、单步运行、跳过当前行单步运行、跳出当前函数单步运行、跳到光标行运行、各种窗口-修改代码要退出调试模式
-      14. 下载工程：工具栏的Download(F8)
-      15. 软件设置：工具栏的Configuration
+      10. 添加文件：工具栏的Manage Project Item-创建文件夹Groups-选中文件夹Add Files添加文件
+      11. 基础设置：工具栏的Options for Target-选择Target-在ARM Compiler设置编译器版本-选择Output-选择Select Folder for Objects-选择输出文件夹-勾选Create HEX File设置输出文件类型-选择C/C++-在Define输入编译器宏而使用HAL库和启动模式-勾选C99 Mode-在Optimization选择Level 0-在Include Paths添加CMSIS的两个Include和HAL_Driver的Inc和USER文件夹-选择Debug-在Use选择仿真器下载接口-选择Setting查看仿真器-选择Flash Download-勾选Reset and Run无需复位直接运行
+      12. 代码提示：<kbd>CTRL</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd>（需要设置电脑系统输入法按键配置取消勾选<kbd>CTRL</kbd>+<kbd>Space</kbd>中英切换）
+      13. 代码框选：<kbd>Alt</kbd>+鼠标左键
+      14. 辅助书签：工具栏的Bookmarks-工具栏功能分别是添加书签、跳转到上一个书签位置、跳转到下一个、清除所有书签
+      15. 移除文件：左侧栏-选中文件-右键-选中Remove File
+      16. 编译工程：工具栏的Build(F7)
+      17. 代码调试：工具栏的Options for Target-选择Debug-选择Setting-选择Trace-在Core Clock输入芯片频率-工具栏的Configuration-选择Debug-Use Simulator仿真调试/Use STLink硬件实时调试-工具栏的Start/Stop Debug Session-左侧栏Registers是寄存器和标志位而上侧栏Disassembly是汇编语言-黄色光标(只能在灰色区域移动)表示程序运行位置和蓝色光标表示鼠标光标位置-工具栏功能分别是当前行设置断点(可以点击行号旁灰色区域设置断点)(断点行不会运行)、使/失能当前行断点、使/失能所有断点、删除所有断点-工具栏功能分别是复位、运行、停止、进入函数内部单步运行、不进入函数内部单步运行、跳出当前函数单步运行、跳到蓝色光标行运行、回到显示当前运行的位置、各种窗口显示-右下角Watch是查看窗口-在代码行中右键选择Add"begin"to可以添加变量到查看窗口或者在Watch窗口直接输入变量名称-右键Value可以取消十六进制显示Hexadecimal Display-右下角t1或者左侧栏内部Sec显示程序运行时间-菜单栏Peripherals可以在右侧栏查看寄存器数值-修改代码要退出调试模式（调试过程：https://www.bilibili.com/video/BV1Qb421H7dL?）
+      18. 下载工程：工具栏的Download(F8)
+      19. 软件设置：工具栏的Configuration
          - 编码：选择Editor-Encoding-选择UTF-8（防止中文乱码）
          - 缩进：选择Editor-Tab size输入4
          - 字体：选择Colors&Fonts-选择C/C++ Edotpr files-选择Font Courier New，同理调整Asm Editor files
@@ -74,12 +79,12 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
          - 移植：工具栏选择Options for Target-选择Target-勾选Use MicroLIB-代码添加C语言库和编写重定向函数就可以使用printf输出数据到串口，或者直接使用spritf，或者编写封装函数使用vspritf
          - 中文GBK：工具栏的Configuration-选择Editor-Encoding-选择GB2312-删除中文-重新打开文件
          - 中文UTF8：工具栏选择Options for Target-选择C/C++-在Misc Controls处输入--no-multibyte-chars
-         - 串口下载写入程序：工具栏选择Options for Target-选择Output-勾选Create HEX File-FlyMcu软件选择串口号、波特率、生成的.HEX文件-硬件跳线帽换成串口下载Boot模式和按下复位按键生效Boot模式（勾选编程后执行和取消勾选编程到FLASH时写选项字节则无需复位即可显示一次性程序而复位后会回到BootLoad模式）-FlyMcu软件选择开始编程而下载程序-更换回跳线帽和同理按下复位按键（可以设计下载电路设置CH340串口芯片的DTR和RTS引脚实现不用更换跳线帽,推荐DTR的低电平复位RTS高电平进BooLoader）
+         - 串口下载写入程序：工具栏选择Options for Target-选择Output-勾选Create HEX File-FlyMcu软件选择串口号、波特率、生成的.HEX文件、下载电平（上位机是232逻辑电平标准和硬件TTL逻辑电平标准相反）-硬件跳线帽换成串口下载Boot模式和按下复位按键生效Boot模式（勾选编程后执行和取消勾选编程到FLASH时写选项字节则无需复位即可显示一次性程序而复位后会回到BootLoad模式）-FlyMcu软件选择开始编程而下载程序-更换回跳线帽和同理按下复位按键（可以设计下载电路设置CH340串口芯片的DTR和RTS引脚实现不用更换跳线帽,推荐DTR的低电平复位RTS高电平进BooLoader）
          - 串口下载写出程序：FlyMcu软件选择读FLASH可以读出芯片程序
          - 串口下载清除芯片：FlyMcu软件选择清除芯片擦除芯片内容
          - 串口下载芯片信息：FlyMcu软件选择读器件信息可以读取芯片的参数
          - 串口下载选项字节：FlyMcu软件选择勾选编程到FLASH时写选项字节和设定选项字节等可以设置读保护保证程序安全（取消时会清空芯片程序）和写保护保护部分区域不被擦除等等不随程序变化的设置参数，但是需要和下载程序同步更改
-      16. STLink相关
+      20. STLink相关
          - 驱动：“Keil文件夹-ARM-STLINK-USBDriver-dpinst_amd64.exe（64位电脑）/x86（32位电脑）”
          - 调试：工具栏的Configuration-选择Debug-Use选择ST-Link Debugger-选择Settings-选择Flash Download-勾选Reset and Run（下载程序后立即复位和运行,否则要手动按下复位按键）
          - STLink Utility：
@@ -92,42 +97,107 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
             2. 选项字节：菜单栏的Target-Option Bytes-选择Read Out  Protection可以设置读保护和Flash sectors protection写保护，可以直接更改选项字节而无需和下载程序同步更改
             3. 更新固件：菜单栏的STLink-选择Firmware update-选择Device Connect-重新拔插STLink-选择Yes升级固件
             4. 代码优化：工具栏选择Options for Target-选择C/C++-优化等级Optimization-选择00不优化则适合调试而01基础优化和02中等优化则速度体积最佳平衡和03最高级优化则存储空间换执行时间和0s体积优化则执行时间换存储空间
-      17. 安装JLink驱动：“Keil文件夹-ARM-Segger-USBDriver”
+      21. 安装JLink驱动：“Keil文件夹-ARM-Segger-USBDriver”
 
 # 4.STM32CubeMX软件
-1. 下载：[STM32CubeMX下载官网](https://www.st.com.cn/zh/development-tools/stm32cubemx.html)
+1. 下载：[STM32CubeMX下载官网](https://www.st.com.cn/zh/development-tools/stm32cubemx.html)（不能运行则要安装JAVA:https://www.java.com/zh-CN/download/）
 2. 安装：基本上是同意和下一步和避免中文路径和创建桌面图标
-3. 设置：设置包路径，关闭自动更新
-4. 注意：在输入芯片型号时，切换英文输入法可以避免双重字母
-5. 编程
+3. 设置：设置包路径，关闭自动更新，检查连接ST官方服务器，登录ST账号(用于在线安装软件包)
+4. 编程
    - C语言
    - C++
-6. 学习：
-   - [STM32江协标准库](https://www.bilibili.com/video/BV1th411z7sn/?)
+5. 学习：
+   - [STM32江协标准库-基础功能](https://www.bilibili.com/video/BV1th411z7sn/?)
+   - [难点1-CAN总线协议-工科男孙老师-用于入门学习1](https://www.bilibili.com/video/BV14F5s6nEgv/?spm_id_from=333.337.search-card.all.click)
+   - [难点1-CAN总线协议-蓝指针科普-用于入门学习2](https://www.bilibili.com/video/BV1BtovBgEZG/?spm_id_from=333.337.search-card.all.click)
+   - [难点1-CAN总线协议-爱上半导体-用于入门学习3](https://www.bilibili.com/video/BV14k4y187e6/?spm_id_from=333.337.search-card.all.click)
+   - [STM32江协标准库-CAN通信（未学习）](https://www.bilibili.com/video/BV1vu4m1F7Gt/?)
+   - [难点2-以太网协议EtherCAT（暂无）]()
    - [STM32江协内容转HAL库-部分内容有错而仅用于快速熟悉配置和HAL函数（还有红外蓝牙WiFi）](https://www.bilibili.com/video/BV1pAojYNEhx?)
    - [STM32铁头山羊动画讲解HAL库-用于入门学习](https://www.bilibili.com/video/BV16J4m1w7HB?)
-7. 常识：
+   - [STM32野火小智全面讲解HAL库-用于进阶学习（未学习CAN）](https://www.bilibili.com/video/BV1ZmGQzsE4N/?)
+   - [STM32中科大RM电控讲解HAL库-CAN通信（未学习）](https://www.bilibili.com/video/BV1HY411D7Ar/?)
+6. 常识：
    - 电源引脚（来源是MOS管的电流是漏极D到源极S）
       1. 正极：Vdd（相比其他是Vcc）
       2. 负极：Vss（相比其他是GND）
-   - 
-8. 
+   - 缩写：
+      1. 兆M：100万=1000千
+      2. 千K：1千
+   - 单位：
+      1. 时间：1s=1×1000ms=1000×1000us
+   - 代码位置：用户代码要写在Begin和End之间，否则更新配置会被抹除
+   - 原子操作：中断不能打断的操作
+7. 首页：
+   - 从MCU创建工程
+   - 从ST官方板卡创建工程
+   - 从ST官方板卡的示例启动
+8. 选芯：
+   - 直接搜索芯片名称（在输入芯片型号时,切换英文输入法可以避免双重字母）
+   - 筛选条件
+   - 星星收藏
+   - 查原理图/用户手册：查阅开发板的引脚作用，有无外部时钟源（一般是OSC），定时器输出通道引脚，串口TxRx引脚，CANTxRx引脚……
+9. 文件分配
+   - Doc文件夹：存放项目说明文档
+   - Libraries文件夹：子文件夹分别存放HAL驱动库和CMSIS核心库
+      1. CMSIS文件夹：ARM官方的Cortex-M核心支持文件（只需要Device(只需Include+Source)+Include文件夹）（system系统初始化）
+         - DSP库(只需要DSP(只需Include+Source)+ARM的math.lib(源码文件和库文件二选一))：数字信号处理库函数，主要提供大量高性能的数学函数
+      2. STM32_HAL_Driver文件夹：STM32官方的HAL库驱动源代码（只需要Inc+Src文件夹）
+   - Project文件夹：存放工程文件和链接脚本等构建内容
+      1. DebugConfig文件夹：存放调试配置信息文件
+      2. Listings文件夹：存放编译过程中的链接列表文件（中间产物可删除）
+      3. Objects文件夹：存放编译过程中的目标文件
+   - User文件夹：存放用户编写主函数代码（main主函数）和HAL库配置文件（hal_conf外设开关,it中断）
+   - APP文件夹：存放用户编写功能函数代码
 
 # 5.功能配置HAL库函数
 1. 基本配置：
-   - 选择芯片：在STM32CubeMX中新建项目，选择芯片型号MCU，开启项目
-   - 查原理图/用户手册：查阅开发板的引脚作用，有无外部时钟源（一般是OSC），定时器输出通道引脚，串口TxRx引脚，CANTxRx引脚
-   - 调试类型：在系统核心的SYS选择SerialWire串口调试
-   - 时钟类型：在系统核心的RCC选择外部晶振（无源晶振）或外部设备提供的时钟源（有源晶振）
-   - 配时钟树：一般是HCLK填写最大值后按下回车，自动配置时钟树，改写晶振值和选用外部晶振
-   - 保存项目：点击项目管理，输入项目名称，英文路径文件夹，选择Cmake编译（使用Keil则使用MDK-ARM编译），选择下载已配置的库文件，勾选把功能代码分散在不同文件中，生成代码
-   - 重复配置：在生成的项目中，打开.ioc文件可以重复配置项目
+   - 调试类型：在系统核心System Core的SYS选择SerialWire串行调试接口（ST-Link,J-Link,DAP-Link）
+   - 时钟类型：在系统核心System Core的RCC(Reset&Clock Controller)
+      1. 旁路时钟源BYPASS Clock Source：外部有源晶振，直接使用已经生成的时钟信号
+      2. 晶体陶瓷振荡器Crystal/Ceramic Resonator：外部无源晶振，外接电路产生时钟信号
+   - 配时钟树：在时钟配置Clock Configuration页面
+      1. 一般是HCLK填写最大值后按下回车，自动配置时钟树，改写晶振值和选用外部晶振
+      2. 选择时钟源和更改乘除倍数
+   - 保存项目：在工程管理Project Manager页面
+      1. 输入工程名称Project Name和选择工程路径Project Location，避免中文
+      2. 选择文件结构Application Structure选择先进Advanced而文件夹分类清晰，不要勾选不创建main函数
+      3. 选择工具链集成开发环境Toolchain/IDE：
+         - EWARM：IAR软件
+         - MDK-ARM：Keil软件
+         - STM32CubeIDE：STM32CubeIDE软件
+         - Makefile：通用Makefile脚本，适合Linux环境开发
+         - Cmake：VSCode、Clion等现代编辑器
+      4. 默认最大的软件最低版本要求Min Version
+      5. 默认堆栈最小的大小Linker Settings
+      6. 默认线程安全设置：
+         - RTOS多线程：勾选
+         - 裸机系统：不勾选
+      7. 默认芯片固件包，取消勾选使用最新可用版本Use latest available version即可调整版本
+      8. 固件库拷贝方式：在Code Generator页面
+         - 工程拷贝所有库：Copy all used libraries into the project folder
+         - 工程拷贝所需库：Copy only the necessary library files（推荐）
+         - 工程使用引用路径方式添加库：Add necessary library files as reference in the toolchain project configuration file
+      9. 生成文件设置：在Code Generator页面
+         - .h.c代码放在不同文件夹中：Generate peripheral initialization as a pair of'.c/.h' files per peripheral（推荐）
+         - 重新生成时备份旧文件：Backup previously generated files when re-generating（不推荐）
+         - 重新生成时保留用户代码：Keep User Code when re-generating（推荐）
+         - 重新生成时不使用的旧文件直接删除：Delete previously generated files when not re-generated（推荐）
+      10. 右上角生成初始化代码
+   - 重复配置：在生成的工程项目中，打开.ioc文件可以重复配置工程项目
+   - 文件作用：
+      1. .s是启动文件，启动时执行的第一个代码文件
+      2. system是系统配置
 2. 头文件固定代码：避免头文件重复命名导致重复编译而失败
    - #ifndef：如果宏没有定义
    - #define：定义宏
    - #endif：结束判断
 3. 头文件
+   - 标准函数：stdio.h
+   - 字符处理：string.h
+   - 通用工具：stdlib.h
    - 数据类型：stdint.h
+   - 数学函数：math.h
    - GPIO口：GPIO.h
 4. Main主函数解析
    - 注释：在重新生成代码时，只会保留在注释之间的代码
@@ -139,6 +209,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
    - 占用字节数：sizeof(数据类型或变量名称)
 6. 基础函数：
    - 阻塞延时：HAL_Delay(时间值)（时间单位ms）
+   - 运行时间：HAL_GetTick()（时间单位ms）
 7. 常用数据类型
    - 枚举类型：GPIO_PinState
 8. 常用宏定义
@@ -150,12 +221,12 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 9. 时钟函数：
    - 系统频率：HAL_RCC_GetSysClockFreq()
 10. GPIO引脚：
-   - 配置：
-      1. 在系统核心的GPIO选择引脚，每个引脚可以选择功能配置
+   - 配置：按住Ctrl选择引脚功能可以查看可替换引脚位置
+      1. 在系统核心System Core的GPIO选择引脚，每个引脚可以选择功能配置，右下角可以搜索
          - 初始电平：默认低电平
             1. 低电平：Low
             2. 高电平：High
-         - 模式：默认推挽输出
+         - 模式：默认推挽输出（一个引脚可以同时输入输出）
             1. 浮空输入No pull-up and pull-down：引脚悬空则输入不确定
             2. 上拉输入Pull-up：内部连接上拉电阻则悬空默认高电平
             3. 下拉输入Pull-down：内部连接下拉电阻则悬空默认低电平
@@ -173,7 +244,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
             2. 中速(≈10MHz)：Medium
             3. 高速(≈50MHz)：High
             4. 超高速(≈100MHz)：Very High
-         - 用户标签：默认无
+         - 用户标签：默认无宏定义
    - 宏定义：
       1. 低电平0：GPIO_PIN_RESET
       2. 高电平1：GPIO_PIN_SET
@@ -182,93 +253,250 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       2. 翻转输出：HAL_GPIO_TogglePin(GPIO引脚分组,GPIO_PIN引脚)
       3. 电平输出：HAL_GPIO_WritePin(GPIO引脚分组,GPIO_PIN引脚,GPIO_PIN高/低电平)
       4. 读取电平：HAL_GPIO_ReadPin(GPIO引脚分组,GPIO_PIN引脚)
-11. EXIT外部中断
-   - 配置：在系统核心的GPIO选择引脚，每个引脚可以选择外部中断，选择功能配置
-      1. 模式：上升沿，下降沿，双边沿，软件触发
-      2. NVIC：勾选启用中断控制
-      3. 系统核心的NVIC：抢占优先级（中断嵌套），响应优先级（优先排队）
-      4. 响应方式：中断响应，事件响应
-   - 代码：
-      1. 外部中断判断：EXTIx_IRQHandler(void)
-      2. 外部中断符号：__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN引脚)
-      3. 外部中断函数：HAL_GPIO_EXTI_IRQHandler(GPIO_PIN引脚)
-12. TIM定时器：
-   - 配置：在系统核心的RCC选择外部时钟源的晶振来源。在定时器选择通道输出和引脚，输入PSC分频倍数(寄存器内部实际分频倍数数值=填写数值=分频倍数目标数值-1)和CM计数方向和ARR计数总数(寄存器内部实际计数总数数值=填写数值=计数总数目标数值-1)和上电默认CCR捕获比较的Pulse值(上电默认输出一定占空比的PWM)。在时钟树中输入外部晶振频率，选择时钟源和倍分频
-      1. 从模式：复位模式（接收到触发信号则清空计数器CNT和产生更新事件），门控模式（触发信号有效时计数），触发模式（触发信号来时启动计数器CNT），外部时钟模式（触发信号作为计数器CNT），编码器格式（正交编码器接口AB相计数）
-      2. 触发源：从模式的触发信号来源
-      3. 时钟源：InternalClock内部时钟，ETR外部触发输入
-      4. 通道：输入捕获IC，输出比较OC，PWM
-      5. 计数器：
-         - 预分频器PSC：（从0开始计数故-1）
-         - 计数模式：向上，乡下，中央对齐先上再下
-         - 自动重装载值ARR：（从0开始计数故-1）
-         - 自动重装载的预装载使能：使能(修改ARR不会立即生效)，不使能
-      6. PWM：
-         - Pulse：高电平数值（占空比=Pulse/(ARR+1)）
-      7. IC：
-         - 输入捕获选择：
-            1. Direct：直接连接（捕获通道连接直接对应引脚）
-            2. Indirect：间接连接（捕获通道连接到交叉引脚）
-         - 极性选择：上升沿，下降沿，上下沿都捕获
-      8. 组合通道模式之编码器模式Encoder：
-         - 编码器模式：通道1，通道2，通道1和2
-         - 极性选择：A相上下计数B相判断方向，B相上下计数A相判断方向，AB相都上下计数和交替判断方向
-      9.  组合通道模式：测量PWM周期和占空比，霍尔传感器模式，异或霍尔模式
-      10. NVIC Setting：勾选启用中断控制
+11. NVIC嵌套向量中断管理器
+   - 配置：在系统核心System Core的NVIC
+      1. 位数分组Priority Group：优先级寄存器是4位16级(越小等级越高)，高几位抢占优先级Pre-emption Priority(优先级更高则打断嵌套)，低几位响应优先级Subpriority(优先级越高越先排队插队,优先级相同则先来后到)
+      2. 显示Show：可用中断，所有中断
+      3. 使能Enabled：勾选开启外设中断
+   - 中断产生：芯片内的各种外设
+12. EXIT外部中断
+   - 配置：
+      1. 设置：在右侧图形化中，每个引脚可以选择外部中断（同数字互斥），或者选择功能配置（部分引脚功能是PVD输出(芯片供电电压超出电压范围则输出),RTC闹钟,USB唤醒,以太网唤醒）
+      2. 模式Mode：在系统核心System Core的GPIO（中断进入CPU,事件不影响CPU）
+         - 中断：上升沿，下降沿，双边沿
+         - 事件：上升沿，下降沿，双边沿
+      3. 中断：在系统核心System Core的NVIC，勾选启用外部中断控制
+      4. 优先级：系统核心System Core的NVIC，分组是抢占和响应的位数，数值越小则优先级越高
+         - 抢占优先级：中断嵌套
+         - 响应优先级：优先排队（子优先级）
+      5. 响应方式：中断响应（进入软件函数），事件响应（触发硬件模块）
    - 代码：
       1. 初始化：
-         - 开启定时器PWM通道：HAL_TIM_PWM_Start(&htim定时器号,TIME_CHANNEL定时器通道)
-         - 开启定时器IC通道：HAL_TIM_IC_Start(&htim定时器号,TIME_CHANNEL定时器通道)
-         - 开启定时器Encoder模式：HAL_TIM_Encoder_Start(&htim定时器号,TIME_CHANNEL_ALL)
+         - 读取标志位：__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN引脚)（轮询），__HAL_GPIO_EXTI_GET_IT(GPIO_PIN引脚)（中断）
+         - 清除标志位：__HAL_GPIO_EXTI_CLEAR_FLAG(GPIO_PIN引脚)（轮询），__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN引脚)（中断）
+         - 服务函数（硬件调用）：EXTIx_IRQHandler()
+         - 处理函数（判中断类）：HAL_GPIO_EXTI_IRQHandler(GPIO_PIN引脚)
       2. 使用：
+         - 回调函数（中断内容）：void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)（用户定义弱函数weak）
+13. TIM定时器：
+   - 功能：计数计时，输入捕获IC，输出比较OC，PWM，编码器
+   - 配置：在系统核心System Core的RCC选择外部时钟源的晶振来源。在定时器选择通道输出和引脚，输入PSC分频倍数(寄存器内部实际分频倍数数值=填写数值=分频倍数目标数值-1)和CM计数方向和ARR计数总数(寄存器内部实际计数总数数值=填写数值=计数总数目标数值-1)和上电默认CCR捕获比较的Pulse值(上电默认输出一定占空比的PWM)。在时钟树中输入外部晶振频率，选择时钟源和倍分频
+      1. 从模式Slave Mode：作为从定时器响应外部触发信号
+         - 复位模式：触发信号边沿则清零计数器CNT和产生更新事件
+         - 门控模式：高低电平控制计数器CNT开关
+         - 触发模式：触发信号边沿启动计数器CNT
+         - 外部时钟模式：外部输入时钟信号
+      2. 触发源Trigger Source：从模式的触发信号来源
+         - 外部引脚
+         - 其他定时器
+         - 本定时器的输入捕获
+      3. 时钟源Clock Source：
+         - InternalClock内部时钟
+         - TRIG从模式控制器输入触发信号：其他定时器ITR，输入捕获，编码器
+         - ETR外部触发输入
+      4. 通道Channel：Disable是默认作为计数计时
+      5. 组合通道Combined Channel：
+         - 编码器模式Encoder Mode：输入捕获正交编码器接口AB相转换成时钟信号控制计数器增减
+         - PWM输入模式：
+         - 异或/霍尔传感器模式：
+      6. 中断：在NVIC Setting或在系统核心System Core的NVIC勾选TIM所需中断
+         - 更新溢出update(global)：计数器计满溢出或软件置位或从模式输入则触发更新事件
+         - 捕获比较capture/compare(global)：输入捕获检测到边沿则触发，输出比较计数器=寄存器CCR值则触发
+         - 触发换向trigger/commtation：内/外部触发信号或电机换相事件则触发
+         - 刹车break(高级定时器特有)：BKIN引脚接收到有效电平或时钟故障
+      7. 寄存器：
+         - PSC预分频器Prescaler：对时钟频率倍数分频÷0~65535（寄存器从0开始计数故-1）（≈计数一次的时间）
+         - 计数模式Counter Mode：向上Up，向下Down，中央对齐是先向上再向下Center Aligned
+         - CNT计数器：计满0~65535溢出
+         - ARR自动重装载值Counter Period：计数溢出后重新装载计数器0~65535（从0开始计数故-1）（≈目标次数）
+         - RCR重复计数(高级定时器特有)：重复计数的次数0~65535（从0开始计数故-1），计数溢出则减少一次重复计数，重复计数结束才会产生更新事件事件
+         - 自动重装预装载使能ARP：使能(产生中断或事件表示周期结束后寄存器值修改才生效,ARR需要手动开启)，不使能
+         - 捕获比较CCR：计数器和寄存器值的比较而实现控制输出（≈比较次数）
+      8. 其他设置：
+         - 时钟分频Internal Clock Division：不分频，二分频，四分频（影响输入捕获的采样速度和死区时间）
+         - 自动预装载使能Auto-Reload Preload：Disable修改ARR值立即生效，Enable修改ARR值等待下个更新事件生效
+         - 触发输出的主从模式Master/Slave Mode：Disbale主定时器不等待从外设一起开始，Enable主定时器等待从外设一起开始
+         - 触发输出的信号Trigger Event Selection：
+            1. Reset：代码置标志位或从模式的复位模式，输出一个脉冲
+            2. Enable：计数器在运行状态则输出高电平
+            3. Update Event：计数器溢出的周期性输出脉冲
+            4. Compare Pulse：计数器的值=比较值时，发送一个脉冲
+            5. Output Compare：捕获比较通道信号
+      9. 输出模式：
+         - 冻结：输出不变
+         - 翻转：相等则翻转
+         - 相等有效：相等则输出高电平，不相等则低
+         - 相等无效：相等则输出低电平，不相等则高
+         - 强制无效：强制低电平
+         - 强制有效：强制高电平
+         - PWM1：CNT计数器<CCR寄存器值则输出高电平，>则低电平
+         - PWM2：CNT计数器<CCR寄存器值则输出低电平，>则高电平
+      10. 输出通道：
+         - 正常输出CH：经过极性选择(正极性High(原样输出)/负极性Low(取反输出))
+         - 互补输出CHN(高级定时器特有)：经过反相器+极性选择(正极性High(原样输出)/负极性Low(取反输出))
+      11. PWM：
+         - 脉冲值Pulse：捕获比较CCR初始值（占空比=Pulse/(ARR+1)）
+         - 输出比较预装载使能Output Compare Preload：Disable修改CCR值立即生效，Enable修改CCR值等待下个更新事件生效
+         - 快速模式Fast Mode：降低电平翻转的响应延迟(标准模式是下一时钟周期才改变电平)和抖动
+         - 通道极性CH Polarity：经过极性选择(正极性High(原样输出)/负极性Low(取反输出))
+         - 互补通道极性(高级定时器特有)：经过极性选择(正极性High(原样输出)/负极性Low(取反输出))
+         - 通道空闲状态：低电平Reset，高电平Set
+         - 互补通道空闲状态(高级定时器特有)：低电平Reset，高电平Set
+      12. IC：
+         - 极性选择Polarity Selection：
+            1. Rising：上升沿
+            2. Falling：下降沿
+            3. 上下沿都捕获
+         - 捕获选择IC Selection：
+            1. Direct：直接模式（捕获本通道信号）
+            2. Indirect：间接模式（捕获对侧通道信号）
+            3. TRC：从模式控制信号
+         - 倍数分频Prescaler Division Ratio：计数多次才算一次
+            1. No Division：不分频
+            2. Division by 2：二分频
+            3. Division by 4：四分频
+            4. Division by 8：八分频
+         - 输入滤波Input Filter：增大值可以使用硬件滤波器滤除高频噪声
+      13. OC：
+      14. Encoder：（增量式编码器是两个AB相位差90°的方波，绝对值编码器是位置码盘保持断电不丢位置）
+         - 模式Encoder Mode：
+            1. TI1：A相边沿计数B相电平判向
+            2. TI2：B相边沿计数A相电平判向
+            3. TI1和2：AB边沿计数和电平判向
+         - 极性Polarity：
+            1. Rising Edge：上升沿则正常输入信号
+            2. Falling Edge：下降沿则输入信号取反
+         - 捕获选择IC Selection：只能配置为直接Direct
+         - 倍数分频Prescaler Division Ratio：（编码器模式不经过分频器所以无用）
+         - 输入滤波Input Filter：增大值可以使用硬件滤波器滤除高频噪声
+      15. 组合通道模式：测量PWM周期和占空比，霍尔传感器模式，异或霍尔模式
+      16. 从模式TRGO：
+         - 触发事件：更新事件
+      17. NVIC Setting：勾选启用中断控制
+      18. DMA Setting：在DMA Setting添加通道，选择方向Direction，选择DMA优先级Priority，选择模式Mode单次Normal或循环Circular，按需勾选源端地址自增、目标地址自增和选择自增地址间隔（根据ADC位数选择）
+   - 代码：
+      1. 系统滴答定时器：
+         - 1ms中断函数：void SysTick_Handler(void)（需要使用static在函数消失时保存变量）
+      2. 初始化：
+         - 自动生成初始化配置：MX_TIM_Init()
+         - 开启定时器计数：HAL_Base_Start(&htim定时器号)
+         - 关闭定时器计数：HAL_Base_Stop(&htim定时器号)
+         - 开启定时器计数中断：HAL_Base_Start_IT(&htim定时器号)
+         - 关闭定时器计数中断：HAL_Base_Stop_IT(&htim定时器号)
+         - 开启定时器PWM通道：HAL_TIM_PWM_Start(&htim定时器号,TIME_CHANNEL定时器通道)
+         - 开启定时器PWM互补通道(高级定时器特有)：HAL_TIMEx_PWMN_Start(&htim定时器号,TIME_CHANNEL定时器通道)
+         - 关闭定时器PWM通道：HAL_TIM_PWM_Stop(&htim定时器号,TIME_CHANNEL定时器通道)
+         - 关闭定时器PWM互补通道(高级定时器特有)：HAL_TIMEx_PWMN_Stop(&htim定时器号,TIME_CHANNEL定时器通道)
+         - 开启定时器PWM的DMA通道：HAL_TIM_PWM_Start_DMA(&htim定时器号,TIME_CHANNEL定时器通道,要发送比较值数据的地址,发送数据字节数)（比较值数据依次放到CCR寄存器）
+         - 关闭定时器PWM的DMA通道：HAL_TIM_PWM_Stop_DMA(&htim定时器号,TIME_CHANNEL定时器通道)
+         - 开启定时器IC通道：HAL_TIM_IC_Start(&htim定时器号,TIME_CHANNEL定时器通道)
+         - 关闭定时器IC通道：HAL_TIM_IC_Stop(&htim定时器号,TIME_CHANNEL定时器通道)
+         - 开启定时器Encoder模式：HAL_TIM_Encoder_Start(&htim定时器号,TIME_CHANNEL_ALL)（也可以分别开启通道）
+         - 关闭定时器Encoder模式：HAL_TIM_Encoder_Stop(&htim定时器号,TIME_CHANNEL_ALL)（也可以分别关闭通道）
+      3. 使用：
          - 定时器句柄：htim->Instance定时器，htim->Channel通道
          - 定时器宏定义：
             1. HAL_TIM_ACTIVE_CHANNEL：判断触发中断或事件的通道
-         - 定时器基本函数：
-            1. 设置比较值：__HAL_TIM_SET_COMPARE(&htim定时器号,TIME_CHANNEL定时器通道,CCR捕获比较的值)
-            2. 设置计数值：__HAL_TIM_SET_COUNTER(&htim定时器号,计数值)
-            3. 获取计数值：__HAL_TIM_GET_COUNTER(&htim定时器号)
+         - 定时器标志位：（双下划线开头表示对寄存器操作）
+            1. 读取标志位：__HAL_TIM_GET_FLAG(&htim1,TIM_FLAG标志位)
+            2. 清除标志位：__HAL_TIM_CLEAR_FLAG(&htim1,TIM_FLAG标志位)
+            3. 计数器溢出：
+            4. 捕获信号变化：
+         - 定时器基本函数：（双下划线开头表示对寄存器操作）
+            1. 读取预分频：__HAL_TIM_GET_PRESCALER(&htim定时器号)
+            2. 设置预分频：__HAL_TIM_SET_PRESCALER(&htim定时器号,PSC预分频值)（有影子寄存器）
+            3. 读取计数值：__HAL_TIM_GET_COUNTER(&htim定时器号)
+            4. 设置计数值：__HAL_TIM_SET_COUNTER(&htim定时器号,CNT计数值)
+            5. 读取重装载：__HAL_TIM_GET_AUTORELOAD(&htim定时器号)
+            6. 设置重装载：__HAL_TIM_SET_AUTORELOAD(&htim定时器号,ARR自动重装载值)（有影子寄存器）
+            7. 读取比较值：__HAL_TIM_GET_COMPARE(&htim定时器号,TIME_CHANNEL定时器通道)
+            8. 设置比较值：__HAL_TIM_SET_COMPARE(&htim定时器号,TIME_CHANNEL定时器通道,CCR捕获比较的值)（有影子寄存器）
+            9. 读取计数方向：__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim定时器号)
+            10. 设置计数方向：__HAL_TIM_SET_COUNTERMODE(&htim定时器号,TIM_COUNTERMODE计数方向)
+         - 计数/中断：
+            1. 中断回调函数：void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)（用户定义弱函数weak）
          - IC：
-            1. 中断回调弱函数：void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+            1. 中断回调函数：void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)（用户定义弱函数weak）
             2. IC读取捕获比较寄存器CCR值函数：HAL_TIM_ReadCapturedValue(&htim定时器号,TIME_CHANNEL定时器通道)
-         - Encoder：
-            1. 
-13. ADC模数转换器：
+         - PWM：
+            1. 中断回调函数：HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)（用户定义弱函数weak）
+14. ADC模数转换器：
    - 配置：
-      1. 开启通道：在模拟的ADC勾选通道
-      2. 功能设置：
-         - 模式：
+      1. 开启通道：在模拟的ADC勾选通道或内部温度计或内部参考电压
+      2. 时钟配置：要勾选启用ADC通道才能配置ADC时钟树的时钟频率
+      3. 功能设置ADC_Setting：
+         - 模式Mode：
             1. 独立模式：多个ADC独立工作互不干扰
             2. 同步模式：多个ADC同时采样提升速度
-         - 对齐：寄存器是16位但ADC是12位
-            1. 左对齐：读取数据变大，因为低位补0
-            2. 右对齐：读取数据正常
-         - 扫描：
-            1. 禁用：每次触发只转换Rank1通道
-            2. 启用：可以转换多个通道
-         - 连续：
-            1. 禁用：触发一次则扫描一次序列转换
-            2. 启用：触发一次则连续扫描转换
-         - 间断：
-            1. 禁用：触发一次则扫描一个序列转换
-            2. 启用：触发一次则只转换序列的前N个
-      3. 规则转换：
-         - 数量：每次转换时按顺序连续转换开启的通道，但是数据寄存器只有一个所以数据不及时读取会被覆盖
-      4. 序列设置
-         - RANK通道：更改每个RANK的ADC通道
-         - 采样周期：时间短则采样电容未充满电导致读数不准，时间长则能适应高阻抗充满电。总时间=采样时间+逐次逼近时间(12位是12.5周期)
+         - 对齐Data Alignment：寄存器是16位但ADC是12位
+            1. 左对齐Left：读取数据变大，因为低位补0
+            2. 右对齐Right：读取数据正常（常用）
+         - 扫描Scan Conversion Mode：（多通道自动启用）
+            1. 禁用Disabled：每次触发只转换Rank1通道（转换一个通道则进入一次回调函数）
+            2. 启用Enabled：可以依次转换多个通道（转换所有通道则进入一次回调函数）
+         - 连续Continuous Conversion Mode：
+            1. 禁用Disabled：触发一次则扫描一次规则序列转换
+            2. 启用Enabled：触发一次则连续扫描规则序列转换
+         - 间断Discontinuous Conversion Mode：
+            1. 禁用Disabled：触发一次则转换整个序列（按序列顺序）
+            2. 启用Enabled：触发一次则只转换序列的前N个
+      4. 规则转换ADC_Regular_ConversionMode：（正常工作通道）
+         - 使能Enable Regular Conversions：开关使能规则(常规)序列
+         - 数量Number Of Conversion：规则转换通道数量（注意数据寄存器只有一个所以数据不及时读取会被覆盖）
+         - 触发External Trigger Conversion Source：选择定时器或外部中断或软件启动等外部触发信号处理规则通道的模数转换
+         - 序列Rank：填写ADC通道和采样时间周期
+            1. RANK通道：更改每个RANK的ADC通道
+            2. 采样周期：时间短则采样电容未充满电导致读数不准，时间长则能适应高阻抗充满电。总时间=采样时间+逐次逼近时间(12位是12.5周期) 
+      5. 注入转换ADC_Injected_ConversionMode：（快速插队通道）
+         - 使能Enable Injected Conversions：开关使能注入序列
+         - 数量Number Of Conversion：注入转换通道数量
+         - 触发External Trigger Conversion Source：选择定时器或外部中断或软件启动等外部触发信号处理注入通道的模数转换
+         - 模式Injected Conversion Mode：注入转换模式
+            1. None：触发一次则转换整个注入序列
+            2. 间断Discontinuous Mode：触发一次则只转换注入序列的前N个
+            3. 自动注入Auto Injected Mode：高级模式，注入序列转换完成后自动切换回规则序列继续转换
+         - 序列Rank：填写ADC通道和采样时间周期
+            1. RANK通道：更改每个RANK的ADC通道
+            2. 采样周期：时间短则采样电容未充满电导致读数不准，时间长则能适应高阻抗充满电。总时间=采样时间+逐次逼近时间(12位是12.5周期) 
+      6. 模拟看门狗WatchDog：
+         - 使能Enable Analog WatchDog Mode：开关使能模拟看门狗中断，监测测量值在自定义范围之内
+      7. 开关中断：在NVIC Setting或在系统核心System Core的NVIC勾选ADC的中断，选择DMA优先级Priority
+      8. DMA中断：在DMA Setting添加ADC，选择DMA优先级Priority，选择模式Mode单次Normal或循环Circular，按需勾选源端地址自增、目标地址自增和选择自增地址间隔（根据ADC位数选择）
    - 代码：
-      1. 自动生成配置：MX_ADC_Init()
-      2. 初始化校准：HAL_ADCEx_Calibration_Start(&hadc模数转换器号)
-      3. 使用：
-         - 开启ADC：HAL_ADC_Start(&hadc模数转换器号)
-         - 模数转换：HAL_ADC_PollForConversion(&hadc模数转换器号,等待时间)
-         - 获取结果：HAL_ADC_GetValue(&hadc模数转换器号)
-      4. 转换完成回调函数：void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)（无DMA则转换一个通道调用一次,有DMA则转换一个序列调用一次）
-   - DMA中断：
-      1. ：HAL_ADC_Start_DMA(&hadc1,(uint32_t*)DataB目标地址,搬运数据数量)
-14. DMA直接存储器访问：
-   - 配置：在系统核心的DMA，添加DMA
+      1. 初始化：
+         - 自动生成配置：MX_ADC_Init()
+         - 初始化开启ADC校准提升采样精度：HAL_ADCEx_Calibration_Start(&hadc模数转换器号)
+      2. 阻塞使用：（一般不使用轮询阻塞）
+         - 标志位：
+            1. AWD：模拟看门狗
+            2. EOC：规则组转换结束
+            3. JEOC：注入组转换结束
+         - 规则组：
+            1. 开启一次轮询阻塞ADC规则转换：HAL_ADC_Start(&hadc模数转换器号)
+            2. 阻塞等待ADC规则转换完成：HAL_ADC_PollForConversion(&hadc模数转换器号,等待时间)
+            3. 读取ADC规则转换结果：HAL_ADC_GetValue(&hadc模数转换器号)
+         - 注入组：
+            1. 开启一次轮询阻塞ADC注入转换：HAL_ADCEx_InjectedStart(&hadc模数转换器号)
+            2. 阻塞等待ADC注入转换完成：HAL_ADCEx_InjectedPollForConversion(&hadc模数转换器号,等待时间)
+            3. 读取ADC注入转换结果：HAL_ADCEx_InjectedGetValue(&hadc模数转换器号,注入通道序列号)
+      3. 中断使用：
+         - 规则组：
+            1. 开启一次ADC转换中断：HAL_ADC_Start_IT(&hadc模数转换器号)
+            2. 转换完成中断回调函数：void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)（用户定义弱函数weak）
+            3. 读取转换结果：HAL_ADC_GetValue(&hadc模数转换器号)
+         - 注入组：
+            1. 开启一次ADC转换中断：HAL_ADCEx_InjectedStart_IT(&hadc模数转换器号)
+            2. 转换完成中断回调函数：void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)（用户定义弱函数weak）
+            3. 读取转换结果：HAL_ADCEx_InjectedGetValue(&hadc模数转换器号,注入通道序列号)
+      4. DMA中断：
+         - 规则组：
+            1. 开启ADC转换DMA中断：HAL_ADC_Start_DMA(&hadc模数转换器号,目标地址,搬运数据数量)
+            2. 转换搬运完成中断回调函数：void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)（用户定义弱函数weak）
+         - 注入组：
+            1. 开启ADC转换DMA中断：HAL_ADCEx_InjectedStart_DMA(&hadc模数转换器号,目标地址,搬运数据数量)
+            2. 转换搬运完成中断回调函数：void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)（用户定义弱函数weak）
+15. DMA直接存储器访问：
+   - 配置：在系统核心System Core的DMA，添加DMA
       1. DMA请求：
          - 存储器到存储器：软件直接触发
          - ADC：需要先配置ADC，ADC触发
@@ -282,7 +510,11 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
          - Byte：一个字节=8位
          - Half Word：半字=16位
          - Word：字=32位（注意和Windows系统不一样）
-      7. 优先级：
+      7. 优先级：相同优先级则根据硬件通道编号决定，优先级只会插队不会打断
+         - Low：低
+         - Medium：中
+         - High：高
+         - Very High：非常高
    - 代码：
       1. 初始化：
          - 自动生成配置：MX_DMA_Init()
@@ -294,7 +526,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       3. 宏定义：
          - 搬运全部：HAL_DMA_FULL_TRANSFER
          - 搬运一半：HAL_DMA_HALF_TRANSFER
-15. USART串口：
+16. USART串口：
    - 配置：在通信外设的USART
       1. 模式：
          - 异步Asynchronous：约定通信速率，无需时钟线
@@ -311,29 +543,37 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
          - 停止位Stop Bits：停止位的持续位时间
       3. 高参：
          - 数据方向Data Direction：只发收或发收双向
-      4. 开关中断：在NVIC设置或在系统核心的NVIC勾选USART的中断
-      5. DMA中断：在DMA设置添加串口的发送接收，按需勾选源端地址自增、目标地址自增和选择自增地址间隔
+      4. 开关中断：在NVIC Setting或在系统核心System Core的NVIC勾选USART的中断
+      5. DMA中断：在DMA Setting添加串口的发送接收，选择模式Mode单次Normal或循环Circular，按需勾选源端地址自增、目标地址自增和选择自增地址间隔（根据数据位的位数选择）
    - 代码：
       1. 初始化：
          - 自动生成配置：MX_USART_UART_Init()
+         - Keil5打印重定向：int fputc(int ch, FILE *f){HAL_UART_Transmit(&huart串口号,(uint8_t *)&ch,1,HAL_MAX_DELAY);return ch;}（还需进入Keil5-Options for target-Target-勾选Use MicroLIB-直接使用printf函数(循环调用fputc直至发送完毕)）
       2. 阻塞使用：（一般不使用轮询阻塞）
-         - 轮询阻塞发送定长数据：HAL_UART_Transmit(&huart串口号,要发送数据的地址,发送数据字节数,等待时间)
-         - 轮询阻塞接收定长数据：HAL_UART_Receive(&huart串口号,接收数据缓冲区的地址,接收数据字节数,等待时间)
+         - 开启一次轮询阻塞发送定长数据：HAL_UART_Transmit(&huart串口号,要发送数据的地址,发送数据字节数,等待时间)
+         - 开启一次轮询阻塞接收定长数据：HAL_UART_Receive(&huart串口号,接收数据缓冲区的地址,接收数据字节数,等待时间)
+         - 开启一次轮询阻塞接收不定长数据：HAL_UART_ReceiveToIdle(&huart串口号,接收数据缓冲区的地址,接收数据最大字节数,实际接收数据字节数,等待时间)（空闲或缓冲区满则退出）
+         - 发收错误回调函数：void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+         - 清除错误标志位：__HAL_UART_CLEAR_FEFLAG(&huart串口号)
+         - 检查标志位：__HAL_UART_GET_FLAG(&huart串口号,标志位)
+            1. 发送完毕标志位：UART_FLAG_TC（使用函数只保证填充寄存器,所以要检查标志位）
       3. 中断使用：
          - 中断模式：
             1. 开启一次非阻塞发送定长数据中断：HAL_UART_Transmit_IT(&huart串口号,要发送数据的地址,发送数据字节数)
             2. 开启一次非阻塞接收定长数据中断：HAL_UART_Receive_IT(&huart串口号,接收数据缓冲区的地址,接收数据字节数)
-         - 入口函数（硬件调用）：USART1_IRQHandler(void)
+            3. 开启一次非阻塞接收不定长数据中断：HAL_UARTEx_ReceiveToIdle_IT(&huart串口号,接收数据缓冲区的地址,接收数据缓冲区最大字节数)（空闲或缓冲区满则触发回调函数）
+         - 服务函数（硬件调用）：USART_IRQHandler(void)
          - 处理函数（判中断类）：HAL_UART_IRQHandler(&huart串口号)
          - 回调函数（中断内容）：
-            1. 非阻塞发送中断的回调函数：void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-            2. 非阻塞接收中断的回调函数：void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+            1. 非阻塞发送定长数据中断的回调函数：void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)（用户定义弱函数weak）
+            2. 非阻塞接收定长数据中断的回调函数：void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)（用户定义弱函数weak）
+            3. 非阻塞接收不定长数据中断的回调函数：void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)（用户定义弱函数weak）
       4. DMA中断：
          - 中断模式：
-            1. 开启一次非阻塞发送定长数据DMA中断：HAL_UART_Transmit_DMA(&huart串口号,要发送数据的地址,发送数据字节数)
-            2. 开启一次非阻塞接收不定长数据DMA中断：HAL_UARTEx_ReceiveToIdle_DMA(&huart串口号,接收数据缓冲区的地址,接收数据缓冲区最大字节数)（空闲或缓冲区满则触发回调函数）
+            1. 开启非阻塞发送定长数据DMA中断：HAL_UART_Transmit_DMA(&huart串口号,要发送数据的地址,发送数据字节数)
+            2. 开启非阻塞接收不定长数据DMA中断：HAL_UARTEx_ReceiveToIdle_DMA(&huart串口号,接收数据缓冲区的地址,接收数据缓冲区最大字节数)（空闲或缓冲区满则触发回调函数）
          - 回调函数：
-            1. 接收：void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+            1. 中断接收：void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
    - - - - （前文-待处理融合）USART串口：
    - 配置：在的选择异步，输入波特率和数据帧的数据位+校验位的位数和停止位位数。在的DMA选择添加发送接收和勾选开启全局中断和自主选择开启循环模式
    - 代码：
@@ -345,43 +585,47 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       2. CPU收发数据帧：
          - 接收：HAL_UART_Receive(&串口号,&数据帧变量,字节数,超时时间)
          - 发送：HAL_UART_Transmit(&串口号,&数据帧变量,字节数,超时时间)
-      3. DMA收发数据帧：
+      3. 中断收发数据帧：
+         - 接收：HAL_UART_Receive_IT(&串口号,&数据帧变量,字节数)
+         - 发送：HAL_UART_Transmit_IT(&串口号,&数据帧变量,字节数)
+      4. DMA收发数据帧：
          - 接收：HAL_UART_Receive_DMA(&串口号,&数据帧变量,字节数)
          - 发送：HAL_UART_Transmit_DMA(&串口号,&数据帧变量,字节数)
-      4. 串口接收中断函数：
+      5. 串口接收中断函数：
          - 接函：HAL_UART_RxCpltCallback()
          - 接收中断函数：HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *串口号)
          - 中断错误函数：HAL_UART_ErrorCallback(UART_HandleTypeDef *串口号)
-16. I2C集成电路总线：
+17. I2C集成电路总线：（两线,多主(对比总线信号仲裁)多从(设备地址)）
    - 软件I2C：（占用MCU）
       1. 硬件：串行时钟线SCL和串行数据线SDA都分别连接4.7K的上拉电阻
       2. 配置：两个开漏输出和上拉(外部上拉则无拉)的GPIO口分别作为时钟线SCL和数据线SDA
       3. 代码：
-         - 通信单元：
+         - 通信单元：（总结:在时钟SCL=1时数据SDA才有效）
             1. 初始化（空闲）：SCL=1，SDA=1
             2. 起始条件（SCL=1时SDA下降沿）：SDA=1，SCL=1，SDA=0，SCL=0
             3. 发送字节（高位先发,SCL=1时发送）：SDA(循环发送一字节数据变量的每一位)，SCL=1，SCL=0
-            4. 接收应答（主发从答,需要提前释放SDA,0=应答=从机收到,1=非应答=发址填错/从机繁忙/从机故障）：SDA=1，SCL=1，SDA=接收应答位，SCL=0
+            4. 接收应答（主发从答,需要提前释放SDA,0=应答=从机收到,1=非应答=发址填错/从机繁忙/从机故障）（每次发送1字节就要接收1次应答）：SDA=1，SCL=1，SDA=接收应答位，SCL=0
             5. 接收字节（高位先收,SCL=1时接收）：SDA(循环接收一字节数据变量的每一位)，SCL=1，SCL=0
-            6. 发送应答（主收主答,0=应答=继续读,1=非应答=不读了）：SDA=发送应答位，SCL=1，SCL=0
+            6. 发送应答（主收主答,0=应答=继续读,1=非应答=不读了）（每次接收1字节就要发送1次应答）：SDA=发送应答位，SCL=1，SCL=0
             7. 终止条件（SCL=1时SDA上升沿）：SCL=0，SDA=0，SCL=1，SDA=1
          - 发送接收：
-            1. 发送数据：起始条件，发送字节(7位从机设备地址+1位读写(10)操作(少有2字节表示=5位固定+2位从机设备地址高二位+1位读写操作+8位从机设备地址低八位))，接收应答，发送字节(寄存器地址字节)，接收应答，发送字节(具体数据字节)，接收应答，终止条件
-            2. 接收数据：起始条件，发送字节(7位从机设备地址+1位读写(10)操作(少有2字节表示=5位固定+2位从机设备地址高二位+1位读写操作+8位从机设备地址低八位))，接收应答，发送字节(寄存器地址字节)，接收应答，接收字节(具体数据字节)，发送应答，终止条件
+            1. 发送数据：起始条件，发送字节(7位从机设备地址+1位读写(10)操作(少有2字节表示=5位固定+2位从机设备地址高二位+1位读写操作+8位从机设备地址低八位))，接收应答，发送字节，接收应答，终止条件
+            2. 发送数据到寄存器：起始条件，发送字节(7位从机设备地址+1位读写(10)操作(少有2字节表示=5位固定+2位从机设备地址高二位+1位读写操作+8位从机设备地址低八位))，接收应答，起始条件(其实是省略终止条件)，发送字节(寄存器地址字节)，接收应答，发送字节(具体数据字节)，接收应答，终止条件
+            3. 接收数据在寄存器：起始条件，发送字节(7位从机设备地址+1位读写(10)操作(少有2字节表示=5位固定+2位从机设备地址高二位+1位读写操作+8位从机设备地址低八位))，接收应答，起始条件(其实是省略终止条件)，发送字节(寄存器地址字节)，接收应答，接收字节(具体数据字节)，发送应答，终止条件
          - 功能封装：
             1. OLED屏幕：设置光标位置，清屏，初始化设置，显示字符，显示字符串，显示有无符号的数字，显示十六进制数字，高级封装成U8G2图形库
    - 硬件I2C：（传输快抗干扰强）
       1. 配置：在通信外设的I2C
          - 模式：
             1. I2C：
-            2. SMBus：系统管理总线
+            2. SMBus：系统管理总线报警的拓展功能
          - 作为主机参数：
-            1. 速度等级：（需要考虑从机速度）
+            1. 速度等级：（需要考虑从机速度波特率）
                - 标准模式Standard Mode：最大传输速度100kbps
                - 快速模式Fast Mode：最大传输速度400kbps
                - 快速增强模式Fast Mode Plus：最大传输速度1Mbps
-               - 高速模式High Speed Mode：最大传输速度3.4Mbps
-               - 超快模式Ultra Fast Mode：最大传输速度5Mbps
+               - 高速模式High Speed Mode：最大传输速度3.4Mbps（大部分不支持）
+               - 超快模式Ultra Fast Mode：最大传输速度5Mbps（大部分不支持）
             2. 时钟速度：设置传输速度的波特率值
             3. 时钟占空比：
                - 2：1低1高，占空比50%
@@ -389,23 +633,24 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
          - 作为从机参数：
       2. 代码：
          - 阻塞使用：（一般不使用阻塞）
-            1. 阻塞发送字节：HAL_I2C_Master_Transmit(&hi2c通信号, 从机设备地址与读写操作的字节,要发送数据的地址,发送数据字节数,等待时间)
-            2. 阻塞接收字节：HAL_I2C_Master_Receive(&hi2c通信号, 从机设备地址与读写操作的字节,接收数据缓冲区的地址,接收数据字节数,等待时间)
-            3. 阻塞发送到从机寄存器(≈阻塞发送2字节)：HAL_I2C_Mem_Write(&hi2c通信号,从机设备地址与读写操作的字节,从机设备寄存器字节地址,寄存器地址字节数,发送数据字节地址,发送数据字节数,等待时间)
-            4. 阻塞读取从机寄存器(≈阻塞接收2字节)：HAL_I2C_Mem_Read(&hi2c通信号,从机设备地址与读写操作的字节,从机设备寄存器字节地址,寄存器地址字节数,接收数据缓冲区字节地址,读取数据字节数,等待时间)
+            1. 阻塞检测就绪：HAL_I2C_IsDeviceReady(&hi2c通信号,从机设备地址与读写操作的字节,发送数据字节数,等待时间)
+            2. 阻塞发送字节：HAL_I2C_Master_Transmit(&hi2c通信号,从机设备地址与读写操作的字节,要发送数据的地址,发送数据字节数,等待时间)（发送0字节则只是发送从机设备地址与读写操作的字节）（一般是从机读写+控制+数据×n各字节）
+            3. 阻塞接收字节：HAL_I2C_Master_Receive(&hi2c通信号,从机设备地址与读写操作的字节,接收数据缓冲区的地址,接收数据字节数,等待时间)
+            4. 阻塞发送到从机寄存器(≈阻塞发送2字节)：HAL_I2C_Mem_Write(&hi2c通信号,从机设备地址与读写操作的字节,从机设备寄存器字节地址,寄存器地址字节数,发送数据字节地址,发送数据字节数,等待时间)
+            5. 阻塞读取从机寄存器(≈阻塞接收2字节)：HAL_I2C_Mem_Read(&hi2c通信号,从机设备地址与读写操作的字节,从机设备寄存器字节地址,寄存器地址字节数,接收数据缓冲区字节地址,读取数据字节数,等待时间)
          - 中断使用：
             1. 
          - DMA中断：
             1. 
-17. SPI串行外设接口：
+18. SPI串行外设接口：（四线,多主(对比总线信号仲裁)多从(设备地址)）
    - 软件SPI：（占用MCU）
       1. 配置：
          - 引脚：三个推挽输出(CS推荐上拉,SCK推荐空闲方向的上下拉,MOSI推荐下拉防上电干扰)和一个浮空/上拉输入(推荐上拉输入)的GPIO口分别作为片选CS和时钟线SCK和主出从入MOSI和主入从出MISO
          - 模式：时钟极性CPOL(空闲SCK=0/1)+时钟相位CPHA(第一/二边沿分别读/写数据)
-            1. 模式0：CPOL=0(空闲SCK=0)，CPHA=0(1边沿读,2边沿写)（常用）
-            2. 模式1：CPOL=0(空闲SCK=0)，CPHA=1(1边沿写,2边沿读)
-            3. 模式2：CPOL=1(空闲SCK=1)，CPHA=0(1边沿读,2边沿写)
-            4. 模式3：CPOL=1(空闲SCK=1)，CPHA=1(1边沿写,2边沿读)（常用）
+            1. 模式0：CPOL=0(空闲SCK=0)，CPHA=0(1边沿收,2边沿发)（常用）
+            2. 模式1：CPOL=0(空闲SCK=0)，CPHA=1(1边沿发,2边沿收)
+            3. 模式2：CPOL=1(空闲SCK=1)，CPHA=0(1边沿收,2边沿发)
+            4. 模式3：CPOL=1(空闲SCK=1)，CPHA=1(1边沿发,2边沿收)（常用）
          - 
       2. 代码：
          - 通信单元：
@@ -417,31 +662,51 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
                - 模式2：MOSI（循环移位发送一字节数据变量的每一位），SCK=0，MISO（循环移位接收一字节数据变量的每一位），SCK=1
                - 模式3：SCK=0，MOSI（循环移位发送一字节数据变量的每一位），SCK=1，MISO（循环移位接收一字节数据变量的每一位）
             4. 终止条件（CS上升沿）：CS=1
-         - 交换数据：起始条件，交换字节（发送控制命令），交换字节（发送寄存器地址），交换字节（发送假数据和接收从机数据），终止条件
+         - 交换数据：起始条件，交换字节（发送读写命令/指令码/寄存器地址/假数据实现接收），终止条件
          - 功能封装：
-            1. W25Q存储器：读取数据，读/写指令，等待繁忙，页编程写入数据，擦除扇区
+            1. W25Q存储器：读取数据，读/写指令，等待繁忙，页编程写入数据，擦除扇区（容量-块-扇区-页-字节）
    - 硬件SPI：（传输快抗干扰强）
       1. 配置：在通信外设的SPI
          - 模式：
             1. 全双工：标准4线(CS,SCK,MOSI,MISO)
             2. 半双工：3线(MOSI和MISO合并)
             3. 仅发/收：2线(SCK,MOSI/MISO)
-         - 硬件片选：在调用SPI交换字节时，硬件自动开启/关闭片选（软件片选使用上拉推挽输出）
-         - 
+         - 硬件片选：在调用SPI交换字节时，硬件自动开启/关闭片选输入/输出（一般使用软件片选(使用上拉推挽输出)）
+         - 基本参数：（需要考虑从机设置）
+            1. 数据帧格式：摩托罗拉格式Motorola(标准SPI,常用)，TI，Microwire，Dual SPI，Quad SPI
+            2. 数据位长度：8位(常用)，16位
+            3. 数据位顺序：先传最高有效位MSB(常用)，先传最低有效位LSB
+         - 时钟参数：（需要考虑从机设置）
+            1. 预分频：2，4，8，16，32，64，128，256
+            2. 波特率：传输速度
+            3. 时钟极性CPOL：低极性Low(空闲SCK=0)，高极性High(空闲SCK=1)
+            4. 时钟相位CPHA：1Edge(在第一边沿接收)，2Edge(在第二边沿接收)
+               - 模式0：极性低，第一边沿接收
+               - 模式1：极性低，第二边沿接收
+               - 模式2：极性高，第一边沿接收
+               - 模式3：极性高，第二边沿接收
+         - 高级参数：
+            1. NSS类型：软Software/硬件Hardware控制片选CS
+            2. CRC校验：Disable禁用CRC校验（常用,一般从及设备不支持校验），Enable启用CRC校验
+         - 传输顺序：高/低位先行
       2. 代码：
          - 阻塞使用：（一般不使用阻塞）
-            1. 发送字节：HAL_SPI_Transmit(&hspi通信号,发送数据字节地址,发送数据字节数,等待时间)
+            1. 发送字节：HAL_SPI_Transmit(&hspi通信号,要发送数据字节地址,发送数据字节数,等待时间)
             2. 接收字节：HAL_SPI_Receive(&hspi通信号,接收数据缓冲区字节地址,接收数据字节数,等待时间)
-            3. 交换字节：HAL_SPI_TransmitReceive(&hspi, 发送数据字节地址,接收数据缓冲区字节地址,交换数据字节数,等待时间)
+            3. 交换字节：HAL_SPI_TransmitReceive(&hspi通信号,要发送数据字节地址,接收数据缓冲区字节地址,交换数据字节数,等待时间)
          - 中断使用：
          - DMA中断：
-18. ----CAN控制器局域网络：
+19. ----CAN控制器局域网络：
    - 配置：在连接外设的CAN勾选激活，根据CAN设备配置相应波特率(根据公式配置(RSJW越大越不容易出错但速度变慢,一般选1)(其他参数有设置先后顺序))，使能AR自动重传和TFP发送队列优先级，勾选RX中断
    - 代码：
-      1. 发送：HAL_CAN_AddTxMessage(&CAN号,&CAN发送结构体(写入部分参数),CAN数据帧的数组数据,&CAN邮箱变量(32位空值))
-      2. 接收中断函数：HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *CAN号)
-      3. 接收：HAL_CAN_GetRxMessage(CAN号, CAN_RX_FIFO0,&CAN接收结构体,CAN数据帧的数组数据)
-19. RTC实时时钟+BKP备份寄存器：
+      1. 初始化：HAL_CAN_Start(&hcan号)
+      2. HAL_CAN_ActivateNotification(&hcan号,CAN_IT_RX_FIFOO_MSG_PENDING)
+      3. 发送：HAL_CAN_AddTxMessage(&hcan号,&CAN发送结构体(写入部分参数),CAN数据帧的数组数据,&CAN邮箱变量(32位空值))
+      4. void CAN_RX0_IRQHandler(void)
+      5. HAL_CAN_irqhANDLER(&hcan号)
+      6. 接收中断函数：HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan号)
+      7. 接收：HAL_CAN_GetRxMessage(&hcan号, CAN_RX_FIFO0,&CAN接收结构体,CAN数据帧的数组数据)
+20. RTC实时时钟+BKP备份寄存器：
    - 配置：
       1. RTC实时时钟：在定时器的RTC，时钟源选择LSE外部低速时钟
          - 功能：勾选激活时钟源，勾选日历，选择禁用RTC时钟输出或闹钟输出或秒输出或校准模式
@@ -462,7 +727,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       2. BKP备份寄存器：
          - 写入数据：HAL_RTCEx_BKUPWrite(&hrtc,RTC_BKP_DR备份寄存器号,写入的数据)
          - 读取数据：HAL_RTCEx_BKUPRead(&hrtc,RTC_BKP_DR备份寄存器号)
-20. PWR电源控制：
+21. PWR电源控制：
    - 配置：
       1. 待机模式：可选配置WKUP引脚为SYS_WKUP
    - 代码：
@@ -481,8 +746,8 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
          - 清除唤醒标志位：__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU)
          - 启用WKUP唤醒引脚：HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN唤醒引脚)
          - 进入模式并等待外部事件唤醒：HAL_PWR_EnterSTANDBYMode()
-21. IWDG独立看门狗：（超时喂狗则复位）
-   - 配置：在系统核心的IWDG
+22. IWDG独立看门狗：（超时喂狗则复位）
+   - 配置：在系统核心System Core的IWDG
       1. 开关：勾选激活
       2. 计时：设置预分频值和重加载值
    - 代码：
@@ -490,8 +755,8 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       2. 循环喂狗：HAL_IWDG_Refresh(&hiwdg)
       3. 读取独立看门狗复位标志位：__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST)
       4. 清除所有复位标志位：__HAL_RCC_CLEAR_RESET_FLAGS()
-22. WWDG窗口看门狗：（不在区间时间内喂狗则复位）
-   - 配置：在系统核心的WWDG
+23. WWDG窗口看门狗：（不在区间时间内喂狗则复位）
+   - 配置：在系统核心System Core的WWDG
       1. 开关：勾选激活
       2. 计时：设置预分频值和最早喂狗窗口值和递减计数器初始值
    - 代码：
@@ -499,7 +764,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       2. 循环喂狗：HAL_IWDG_Refresh(&hwwdg)
       3. 读取窗口看门狗复位标志位：__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST)
       4. 清除所有复位标志位：__HAL_RCC_CLEAR_RESET_FLAGS()
-23. Flash芯片内部存储器：
+24. Flash芯片内部存储器：
    - 配置：无
    - 代码：
       1. 读取数据：*((__IO uint_t *)(地址))
@@ -514,19 +779,224 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
          - 解锁控制：HAL_FLASH_Unlock()
          - 写入数据：HAL_FLASH_Program(FLASH_TYPEPROGRAM写入数据类型,地址,写入的数据)
          - 锁定控制：HAL_FLASH_Lock()
-24. IR红外遥控：
+25. IR红外遥控：
    - 配置：定时器
    - 代码：
-25. BT蓝牙：
+26. BT蓝牙：
    - 配置：串口
    - 代码：
-26. WiFi无线网络：
+27. WiFi无线网络：
    - 配置：串口
    - 代码：
 
 # 6.高级应用
-1. FreeRTOS
-   - 作用：多个任务近似同时进行(不断快速轮着切换任务)
+1. DWT数据观察点与跟踪
+   - 作用：系统调试和跟踪，观察变量访问、程序运行轨迹、精确硬件计时代码运行时间（受主频控制的ns纳秒级且不受影响）
+   - 特点：HAL库没有，这是内核的一部分，所以要自己封装函数
+   - 代码：（一般设置文件名是bsp_dwt）
+      1. 宏定义：
+         - #define DEMCR *(uint32_t *)(0xE000EDFC)
+         - #define DWT_CTRL *(uint32_t *)(0xE0001000)
+         - #define DWT_CYCCNT *(uint32_t *)(0xE0001004)
+         - #define DEMCR_TRCENA (1<<24)
+         - #define DWT_CTRL_CYCCNTENA (1<<0)
+      2. 初始化：
+         - 使能DWT：DEMCR|=(uint32_t)DEMCR_TRCENA
+         - 清零计数器：DWT_CYCCNT=(uint32_t)0U
+         - 使能计数器：DWT_CTRL|=(uint32_t)DWT_CTRL_CYCCNTENA
+      3. 读取节拍：return ((uint32_t)DWT_CYCCNT)
+      4. 间隔时间：return (uint32_t)(1000000.0/芯片频率*节拍差)（时间单位us）
+      5. 延时间隔：uint32_t duration=延时时间*(芯片频率/1000000)（时间单位us）
+2. FreeRTOS多线程
+   - 学习：https://www.bilibili.com/video/BV1vUpje9Ej2/?p=12，https://www.bilibili.com/video/BV1nvqSBAELQ/?，https://www.bilibili.com/video/BV1mhWqzFEzn/?，https://www.bilibili.com/video/BV1yJ41znEcA/?
+      1. [基于STM32Cube的铁头山羊FreeRTOS教程-用于入门学习](https://www.bilibili.com/video/BV1KSLc6XEEt/?)
+   - 名称：Free Real Time Operating System开源免费的实时操作系统（电脑是分时操作系统TSOS）
+   - 特点：优先级抢占（电脑是分配均等时间片执行任务而超时则交出从而保证公平性）
+   - 作用：多个任务近似同时进行≈多个main函数同时执行(调度器会快速轮流切换任务执行,但同一时间还是只有一个任务被执行(只有一个处理单元MCU))
+   - 同类：RT-Thread
+   - 发展：32位单片机高处理能力-昂贵的商业操作系统-开源操作系统
+   - 优势：开源免费，轻量化，代码易读，使用简单
+   - 框架：
+      1. 调度器：调度算法是调度器切换任务的策略
+         - 抢占式调度Preemptive Scheduling：调度器总是选中高优先级任务，立马打断切换的抢占式执行（≈STM32中断的抢占优先级）
+            1. 带时间片wit Time Slicing（常用）：优先级相同的任务获得近似均等的执行时间
+            2. 不带时间片without Time Slicing：优先级相同的任务遵循先来后到而使用MCU
+         - 协作式调度Cooperative Scheduling：调度器总是选中高优先级任务执行，但只有在当前任务主动让出控制权时才会切换（≈STM32中断的响应优先级）（高级）
+      2. 任务：执行工作（属于内核对象）
+         - 启动调度器时创建的任务：空闲任务ILDE(不执行其他任务(延时等)时则执行空闲任务保证单片机工作)，定时器任务(软件定时器的服务器,使用软件定时器则创建)
+         - 用户创建的任务
+      3. 优先级：
+         - 作用：任务切换顺序和响应速度
+         - 数值：数字越大优先级越高（与STM32优先级相反）
+         - 特点：0一般是空闲任务
+      4. 中断：在内核中驱动调度器工作（函数在移植文件port.c中）
+         - SVC：启动首个任务（函数vPortSVCHandler）
+         - pendSV：后续任务切换（函数xPortPendSVHandler）
+         - Systick：产生时间片帮助轮询调度，产生系统节拍（函数xPortSysTickHandler）（启动调度器时会自动配置和启动Systick,在Systick计数溢出产生中断时=1个时间片）
+      5. 内核对象：
+         - 队列(邮箱)：
+         - 队列集合：
+         - 事件组：
+         - 软件定时器：需要经过定时器命令队列
+         - 信号量：二进制信号量，计数信号量，互斥锁，递归互斥锁
+         - 消息缓冲区：
+         - 流缓冲区：
+      6. 堆内存管理方案：在程序运行中给内核对象动态分配和释放堆内存（标准C库使用malloc和free函数管理堆内存,但是这两函数有不可重入和内存碎片化和执行速度慢和执行事件不确定的问题）
+         - heap1：只能分配不能释放(没实现vPortFree函数)，可以设置堆大小，适合只创建不销毁内核对象
+         - heap2：最优匹配算法(在新分配时选择满足要求的最小空闲块)但不合并相邻空闲块(始终保留8字节信息头)，过时不推荐使用，内存碎片化问题严重，可以设置堆大小，适合用来兼容老版本
+         - heap3：
+         - heap4：最优匹配算法且合并相邻空闲块（常用）
+         - heap5：
+      7. 临界区
+      8. 任务通知
+   - 基础：
+      1. 存储：
+         - Flash：存储程序和常量的不可变部分，掉电不丢失（≈硬盘）
+         - SRAM：存储变量的经常变化部分，掉电丢失（≈内存）
+            1. .data段：有初值的全局变量或静态变量
+            2. .bss段：无/0初值的全局变量或静态变量
+            3. .heap段：堆可分配的内存，在使用标准C库函数会用到堆（STM32CubeMX的项目管理位置可以设置长度）
+            4. 未分配区域：提供给.heap段和.stack段分配空间
+            5. .stack段：调用栈存储局部变量和参数等（STM32CubeMX的项目管理位置可以设置长度）
+      2. 编译输出：
+         - text：代码编译成二进制后存储在Flash的字节数
+         - data：SRAM的.data段的字节数
+         - bss：SRAM的.bss段+.heap段+.stack段的字节数
+         - dec：前面总和，十进制显示
+         - hex：前面总和，十六进制显示
+      3. 堆：
+         - 作用：动态分配的内存
+         - 创建：8字节信息头(含长度信息,在空闲块自动放置)+堆字节
+         - 原理：在堆空间中动态分配创建和删除堆，可能会产生堆空间空隙
+         - 特点：不使用C类堆分配函数（速度慢不定时,内存碎片化,不可重入性(多个任务同时调用函数)）
+         - 内核对象：需要堆动态分配内存
+            1. 任务：Task Control Block任务控制块(存储任务运行的关键信息,约100字节)+任务栈(默认128字=512字节)
+      4. 栈：
+         - 作用：后进先出的数据结构
+         - 关键词：栈顶，栈底，栈深度，压栈，弹栈，后进先出
+         - 调用栈：系统自动维护的栈，在函数调用时压栈保存函数参数(地址字节数一般是单片机位数)、局部变量、返回地址(地址字节数一般是单片机位数)的上下文信息，在函数返回时弹栈取出上下文信息
+         - 任务栈：FreeRTOS为每一个任务分配一个调用栈，但是main函数中仍有函数所以.stack段不能设置为0
+      5. 任务：
+         - 类型：
+            1. 动态创建：在堆动态分配任务内存（常用）
+            2. 静态创建：用户手动分配任务内存（高级）
+         - 状态：
+            1. 运行Running State：调度器选中任务并单片机CPU正在执行代码
+            2. 就绪Ready State：满足条件，任务等待被执行
+            3. 阻塞Blocked State：任务等待先决条件(超时/事件)而主动放弃就绪排队
+            4. 暂停Suspened State：调度器不能选中任务
+      6. API：Application Programming Interface应用程序编程接口
+   - 使用：
+      1. 源码：
+         - FreeRTOS官网：https://www.freertos.org/zh-cn-cmn-s（LTS是Long-Term Support长期支持版本,一般两年）
+         - FreeRTOS-Kernel内核文件夹：
+            1. example：
+               - FreeRTOSConfig.h：配置文件模板
+            2. portable：移植层（用于适配不同编译工具链类型和单片机内核种类）
+               - 开发工具链：GCC(STM32CubeIDE)，RVDS(Keil)，……
+                  1. 内核类型：ARM_CM3(STM32F1,……)，……
+               - MenMang：堆内存管理方案
+            3. include：内核头文件
+               - FreeRTOS.h（必须）：内核头文件，包含引用模板FreeRTOSConfig.h文件
+               - task.h（必须）：调度器，任务，任务通知
+               - queue.h：队列，队列集合，软件定时器
+               - semphr.h：信号量
+               - timers.h：软件定时器
+               - event_group.h：事件组
+               - message_buffer.h：消息缓冲区
+               - stream_buffer.h：流缓冲区
+            4. .c文件：内核源文件
+               - task.c（必须）：调度器，任务，任务通知
+               - list.c（必须）：列表数据结构
+               - queue.c：队列，队列集合，信号量，软件定时器
+               - timer.c：软件定时器
+               - event_group.c：事件组
+               - croutine.c：协程（用于资源匮乏的嵌入式硬件系统,现已弃用）
+               - stream_buffer.c：流缓冲区，消息缓冲区
+      2. 移植：
+         - 源文件：在工程中创建FreeRTOS文件夹，在里面创建Src文件夹，存放FreeRTOS的.c文件
+         - 头文件：在工程中创建FreeRTOS文件夹，在里面创建Inc文件夹，存放FreeRTOS的.h文件
+         - 移植件：在工程中创建FreeRTOS文件夹，在里面创建Inc文件夹，在里面创建Src文件夹，分别存放FreeRTOS的对应编译工具链和单片机内核类型的port.c和portmacro.h文件
+         - 内存件：在工程中创建FreeRTOS文件夹，在里面创建Src文件夹，存放FreeRTOS的堆内存管理方案(只能选择一个)的.c文件
+         - 模板件：
+            1. 放文件：在工程中创建FreeRTOS文件夹，在里面创建Inc文件夹，存放FreeRTOS的配置文件模板的.h文件（但是一般被认为是用户代码而放在Core的Inc中）
+            2. 配置项：（需要手动修改到适合单片机使用）
+               - configCPU_CLOCK_HZ：内核运行频率（时钟树右边的Core=HCLK）
+               - configTICK_TYPE_WIDTH_IN_BITS：TickType-t(用于存储系统节拍≈系统时间)的位宽(多个bit位表示一个整数)（尽量大位宽从而减少清零消耗的工作时间,若设置1ms增加一次则16位≈1分钟,32位≈49天,64位≈5亿多年,一般选择相应单片机位数(特例8位单片机选择16位)从而保证处理效率最高）
+               - configKERNEL_INTERRUPT_PRIORITY：pendSV和Systick的中断优先级(设置最低优先级,一般是数字最大,还需结合寄存器情况是否要移位)
+               - configMAX_SYSCALL_INTERRUPT_PRIORITY：调用FreeRTOS编程接口的最高优先级界限(在最低优先级到设置的最高优先级才能调用FreeRTOS的API,避免高优先级的中断被FreeRTOS干扰)
+               - configUSE_TIME_SLICING：是否使用时间片（仅影响抢占式调度）
+               - configCHECK_FOR_STACKOVERFLOW：捕获任务栈是否溢出
+               - configMAX_PRIORITIES：最高优先级的数值
+               - configUSE_PREEMPTION：是否使用抢占式调度
+               - configTICK_RATE_HZ：设置Systick的中断溢出频率（单位Hz=次/秒）（数值不是越大越好,溢出频率越高MCU越要花更多时间去处理中断从而影响程序执行效率,默认100）
+               - configTOTAL_HEAP_SIZE：设置堆大小
+               - ……
+         - 中断向量表：
+            1. 位置：工程文件夹-Core文件夹-Startup文件夹-startup_stm32.s启动文件
+            2. 替换：约144行的SVC_Handler(SysTick的中断)替换为vPortSVCHandler，约147行的PendSV_Handler替换为xPortPendSVHandler，约148行的SysTick_Handler替换为xPortSysTickHandler
+      3. 手册：https://www.freertos.org/zh-cn-cmn-s/Documentation/02-Kernel/07-Books-and-manual/01-RTOS_book
+      4. 配置：
+         - 外设：STM32CubeMX正常配置外设
+         - RTOS：
+            1. 时间基准：在系统核心System Core的SYS选择Timebase Source选择TIM定时器（HAL库时间函数是基于SysTick中断函数实现HAL计数+1工作,而SysTick定时器已经被FreeRTOS中断替换而使用,所以需要其他定时器代替SysTick帮助HAL库计时）
+      5. 代码：
+         - 头文件：
+            1. #include "FreeRTOS.h"
+            2. #include "task.h"
+         - 宏定义：
+            1. pdPASS成功，pdTRUE是：1
+            2. pdFAIL失败，pdFALSE否：0
+            3. portMAX_DELAY：无限时间
+         - 命名规范：
+            1. 命名数据：
+               - 变量名称=类型前缀(全小写)+实际名字(首字母大写)
+               - 函数名称=返回值类型前缀(全小写)/静态函数直接用prv+函数所在的文件名称(首字母大写)+实际名字(首字母大写)
+               - 宏定义名称：所在文件名称的缩写(全小写)+实际名字(全大写,单词间用_分割)
+            2. 符号前缀：
+               - p：*=指针(数组也是)
+               - u：unsigned=无符号
+               - v：void
+               - c：char=int8_t
+               - s：short=int16_t
+               - l：long=int32_t
+               - x：TickType_t，BaseType_t，或其他数据类型
+               - e：enum=枚举类型
+         - 数据类型：
+            1. TickType_t：记录系统节拍
+            2. BaseType_t：逻辑0/1，自动选择处理器架构下最有效率的数据类型（32位单片机就是int32_t）
+            3. UBaseType_t：BaseType_t的无符号(非负数)版本
+            4. TaskHandle_t：任务句柄
+         - 句柄驱动：（本质还是结构体）
+            1. 定义：typedef struct{推荐变量+函数指针}结构体类型名称;
+            2. 声明：结构体类型名称 结构体变量名称
+            3. 定参：结构体类型名称 *结构体参数名称
+            4. 传参：&结构体变量名称
+            5. 用内：结构体->成员
+         - 基础函数：
+            1. 阻态延数：vTaskDelay(系统节拍数)（这个函数好处是可以任务变成阻塞状态从而让其他任务执行,而HAL_Delay函数内部是调用while循环）
+            2. 阻态延时：vTaskDelay(pdMS_TO_TICKS(时间值))（时间单位ms）
+            3. 系统计数：xTaskGetTickCount()
+            4. 实际时间：pdTICKS_TO_MS(xTaskGetTickCount())
+         - 任务函数：
+            1. 任务函数：void 任务函数名称(void *pvParameters){}（main函数外）
+            2. 动态创建：xTaskCreate(任务函数名称,"任务别名"(内部不会使用,仅调试时观看),分配任务栈的字数(1字=4字节,默认128),传递给任务参数的地址(默认NULL),任务优先级(默认1),使用变量地址获取返回的任务句柄(默认NULL不接收))（main函数内初始化位置,可以共用相同任务(Flash单份,栈空间依旧多份)）
+            3. 静态创建：xTasjCreateStatic()
+            4. 暂停任务：vTaskSuspend(任务句柄)
+            5. 恢复任务：vTaskResume(任务句柄)
+            6. 删除任务：vTaskDelete(任务句柄(NULL则删除自身任务))
+            7. 主动让执：taskYIELD()
+         - 调度器：
+            1. 启动：vTaskStartSchedualer()（main函数内初始化位置,后面while防止调度函数退出而程序跑飞）
+            2. 暂停：vTaskSuspendALL()
+            3. 恢复：xTaskResumeALL()
+         - 堆分配：（heap1-5提供）
+            1. 分配内存：pvPortMalloc()
+            2. 释放内存：vPortFree()
+      6. 应用：
+         - 按键：较高优先级+阻态延时=不需要消抖
+      7. 
+   -------------------------------------------（后期合并旧知识）
    - 优先级：
       1. 分类：
          - 空闲
@@ -555,12 +1025,12 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       1. 阻塞延时：低级调用vTaskDelay(时间值)，高级封装osDelay(时间值)
       2. 初始系统：MX_FREERTOS_Init()
       3. 运行系统：osKernelStart()（不再执行主函数Main中的While）
-2. 电机
+3. 电机
    - https://github.com/TongjiSuperPower/sp_middleware
    - 直流电机：
       1. 控制：两个电极，正接正转，反接反转
       2. 功率：对于STM32输出驱动来说非常大
-      3. 驱动：需要配合电机驱动电路板，可以调整旋转方向（引脚正反接）和旋转速度（电压大小）
+      3. 驱动：需要配合电机驱动电路板，可以调整旋转方向（引脚正反接）和旋转速度（电压大小,一般使用PWM占空比模拟）
    - 无刷电机：
       1. 特点：
          - 开环控制：在电流控制和没有负载时，克服静摩擦力就很容易达到最高转速
@@ -576,11 +1046,18 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       6. 注意：在没有接收到指令时，电机会因为电调控制而一直执行上一条指令
    - 舵机：
       1. 特点：只能转动特定角度，内部是闭环控制
-      2. 控制：要求PWM周期20ms，高电平时间0.5-2.5ms，PWM占空比决定转动角度
+      2. 控制：要求PWM周期20ms，高电平时间0.5-2.5ms，PWM占空比决定转动角度0-180°
+      3. 线路：
+         - 5V正极：红色
+         - 负极：棕色
+         - PWM信号线：橙黄色
+      4. 分类
+         - 模拟舵机
+         - 数字舵机：程序控制和运行性能>模拟舵机
    - 步进电机：
       - 特点：转动角度精准。但转速增加扭矩下降，负载过大或转速太高可能失步
       - 控制：PWM周期控制速度，PWM数量控制角度位置
-3. 底盘解算
+4. 底盘解算
    - 全向轮
       1. 特点：旋转快，但运动不稳且不精
       2. 控制：根据轮子方向进行速度分解
@@ -590,30 +1067,42 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
    - 舵轮
       1. 特点：灵活，但重量重
       2. 控制：转动轮子方向
-4. 功能设备
+5. 功能设备
    - 示意
       1. 按键/旋钮/拨盘
-         - 按键：前后延时20ms消抖+while循环判断读取
-         - 旋钮：顺时钟转动A下降沿时B高电平
-      2. 蜂鸣器
+         - 按键：前后延时10-20ms弹性触点(锅仔片的弹性)消抖（若硬件使用并联电容充放电消抖则无需延时）+while循环判断读取
+         - 旋钮：顺时钟转动则A下降沿时B高电平，逆时钟转动则A下降沿时B低电平
+            1. A：A相脉冲输出，默认上拉
+            2. B：B相脉冲输出，默认上拉
+            3. C：公共接地
+            4. S1，S2：编码器按键，S1默认上拉，S2默认接地
+      2. 电位器：旋转可变电阻
+      3. 蜂鸣器
          - 特点：发出声音
          - 控制：PWM控制音调
          - 听频：20-20000Hz
          - 频源：
-            1. 有源蜂鸣器：内置固定频率振荡源，只需开关发声
+            1. 有源蜂鸣器：内置固定频率振荡源，只需高低电平开关发声
             2. 无源蜂鸣器：控制翻转电平频率发声
-      3. LED灯
+      4. LED灯
          - 特点：显示亮光
          - 控制：高低电平的亮灭灯，PWM的呼吸灯
-      4. LCD显示屏
+      5. LCD显示屏
          - 原理：背光
          - 特点：功耗大，可视角小，
-      5. OLED显示屏
-         - 原理：每个像素自发光
-         - 特点：功耗低，可视角大，响应速度快，轻薄柔韧，内部有显存可以保留最后一次显示的内容
-         - 像素：128×64
+      6. OLED显示屏
+         - 名称：有机发光二极管/有机电激光显示
+         - 原理：每个像素自发光，不需要背光源
+         - 特点：功耗低，可视角大，响应速度快，轻薄柔韧，内部有显存可以保留最后一次显示的内容，只能写入命令和数据
+         - 像素：
+            1. 0.96寸：128列×64行(1列×8位行=1页)
          - 线孔：4（I2C），7（SPI）
-         - 字库代码：设定要显示的像素点阵
+         - 显示：
+            1. 字模：设定要显示的像素点阵（一般英文6×8/8×16,中文16×16/24×24）
+            2. 位图：
+         - 命令控制：
+            1. 连续模式：开启后每个数据字节前要有控制字节，关闭则发送数据字节前只需一个控制字节
+            2. 指令选择：写入数据，写入控制指令
          - 功能函数：（一般,新文本覆盖删除旧文本）
             1. 初始屏幕：OLED_Init()
             2. 清除屏幕：OLED_Clear()
@@ -624,17 +1113,32 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
             7. 显示二数：OLED_ShowBinNum(行，列，16进制数字，长度)
             8. 显示十六：OLED_ShowHexNum(行，列，16进制数字，长度)
    - 传感
-      1. 光敏电阻
-      2. 热敏电阻
-      3. 红外接收管
-      4. 编码器
+      1. 光敏电阻：环境亮度影响电阻分压
+      2. 热敏电阻：环境温度影响电阻分压
+      3. 反射式红外：红外线会被黑色吸收
+      4. 火焰传感器：
+      5. 雷达模块：
+      6. 土壤传感器：测容土壤湿度导通且湿度越高电阻越小的等效电阻
+      7. 雨量传感器：测量雨量/积水深度导致并联导通的等效电阻
+      8. 空气传感器：电导率(电阻减小)随污染气体浓度增大而检测污染气体，需要转换为浓度单位ppm
+      9. 烟雾传感器：电导率(电阻减小)随可燃气体浓度增大而检测烟雾和可燃气体，需要转换为浓度单位ppm
+      10. 超声波传感器：
+      11. 温湿度传感器：电容式感湿和NTC测温和8位单片机
+      12. 心率血氧传感器：红外光和可见红光LED和光电探测器，利用人体组织在血管搏动时造成透光率不同的，反射不同光亮从而实现测量
+      13. 激光测距传感器：发射和接收激光
+      14. 姿态传感器：三轴加速度+陀螺仪(角速度)
+      15. Flash存储器：存储掉电不丢失的数据
+      16. 气压计：测量大气压强和环境温度
+      17. WiFi模块：ESP8266是速度较低的串口转WiFi（使用中断和DMA）
+      18. 红外接收管
+      19. 编码器
          - 作用：测量旋转方向、力矩、速度和位置
          - 分类：
             1. 光栅码盘
             2. 机械触点
             3. 霍尔传感
             4. 编码器元件
-      5. 姿态传感器：
+      20. 姿态传感器：
          - 分类：
             1. 6轴：
                - 作用：6轴姿态传感器，可以测量芯片自身的XYZ轴（横向,竖向,垂直）加速度（加速度计）和角速度（陀螺仪传感器），通过数据融合操作（互补滤波,卡尔曼滤波……）得到精准稳定的欧拉姿态角
@@ -664,7 +1168,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
                - 作用：提供参考轴向而减小漂移误差
             3. 10轴：添加气压强度
                - 作用：测量高度
-      6. 气压计
+      21. 气压计
    - 存储：
       1. W25Q存储器
          - 特点：数据掉电不丢失，成本低，容量大，速度较快(Flash特性)
@@ -689,7 +1193,7 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
       1. 2.4G无线模块
       2. 蓝牙模块
       3. WiFi模块
-5. FOC控制
+6. FOC控制
 
 ## 2.5.辅助软件
 1. Vofa+
@@ -722,6 +1226,11 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
 20. 飞机调试助手：无人机飞控参数调试与传感器数据查看软件
 21. PulseView：逻辑分析仪/示波器开源软件
 22. Prismatik (unofficial)：屏幕环境光同步软件
-23. 软件：VScode(或Keil5-MDK编程烧录ARM架构芯片)，STM32CubeMX（图形化配置芯片引脚生成代码,否则使用标准库或HAL库自行配置），STLink驱动，CH340驱动（USB转串口），（FlyMcu串口下载，STLink Utility下载）（查看驱动：右键此电脑图标-属性-设备管理器-其他设备-无感叹号则已安装）
+23. 软件：VScode(或Keil5-MDK编程烧录ARM架构芯片)，STM32CubeMX（图形化配置芯片引脚生成代码,否则使用标准库或HAL库自行配置），STLink驱动，CH340驱动（USB转串口）（一般自动下载,低版本Win7下载网址https://www.wch.cn/downloads/cH341SER_EXE.html），（FlyMcu串口下载，STLink Utility下载）（查看驱动：右键此电脑图标-属性-设备管理器-其他设备-无感叹号则已安装）
 24. uartassist串口助手
 25. SSCOM串口助手
+26. （硬件）DAP下载器，逻辑分析仪，示波器
+27. 编码转换：codetransmit
+28. 字模点阵：PCtoLCD2002
+29. 位图放缩：Img2Lcd
+30. 野火多功能调试助手：

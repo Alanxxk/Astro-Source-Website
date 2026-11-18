@@ -71,7 +71,120 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
    - 作用：不同开发场景下可以切换配置实现不同的设置+扩展插件+快捷键+UI布局+任务+快捷代码片段
    - 准备：软件设置完成，扩展插件安装完成，设置快捷键，tasks.json配置完成，设置快捷代码片段
    - 位置：“软件左下角齿轮-配置文件-配置文件-新建配置文件”
-## 3.4.扩展插件
+## 3.4.等宽字体
+1. 简介：
+   - 定义：每个字符都占据相同的水平空间，但是一般1中文=2英文才最好显示（半/全角/形）
+   - 作用：方便对齐阅读，观察缩进和字符，适合自己的优雅风格适合长篇代码阅读
+   - 注意：可能并不适合英文文章阅读（紧凑单词的图形识别和白河川流效应），英文阅读建议Noto Sans SC字体（https://fonts.google.com/noto/specimen/Noto+Sans+SC?preview.script=Hans），其他功能需求请自行寻找更多心仪字体（本站使用Dream Han Sans字体）
+2. 网站：
+   - 字体随机PK：https://www.codingfont.com/（作用倾向筛选风格,本人胜者是Hack,可惜不带中文）
+   - 字体预览：https://programmingfonts.org/（筛选分别是有无衬线,0特殊设计,像素风格,连符归一）
+   - 字体增强：https://www.nerdfonts.com/（字库带有图标等等）
+3. 区别：
+   - oO0
+   - LlIi1|
+   - 39agfry
+   - {}
+   - 连符
+   - 锐边
+   - 尾缀
+   - 大写
+   - 中文
+4. 分类：
+   - 风格：
+      1. Mono/Fixed：等宽字体
+      2. Propo：非等宽字体
+      3. Serif：有衬线（粗细不均）
+      4. Sans/Sans-serif/Gothic：无衬线（粗细均匀）
+      5. Slab/Slab-serif：粗衬线
+      6. Term/Console：终端专用
+      7. UI：界面专用
+      8. Italic/Oblique：斜体
+   - 语言：
+      1. SC：简中
+      2. HK：香港
+      3. TC：繁中（台湾标准）
+      4. JP：日本
+      5. KR：韩国
+      6. CJK：中日韩
+   - 特殊：
+      1. NF：含图标
+      2. NFM：图标严格一字符
+      3. NL：无连符归一
+      4. PL：含终端提示符号
+      5. Variable：可变字体
+      6. Code：代码专用
+5. 个人：
+   - Maple Mono：
+      1. 感受：柔和不硬朗不浮肿易辨认
+      2. 版本：7.9-NF-CN-NoLigature-Bold
+      3. 网站：https://font.subf.dev/
+   - LxgwWenKai：
+      1. 感受：手写书法韵味
+      2. 版本：1.530-Medium
+      3. 网站：https://github.com/lxgw/LxgwWenKai
+6. 主流：
+   - Fira Code：连符归一
+   - JetBrains Mono：连符归一
+   - Source Code Pro：无尾巴
+   - Inconsolata：连符归一
+   - Droid Sans Mono：
+   - Iosevka：
+   - Ubuntu Mono：
+   - Github Monaspace：
+   - Win Consolas：
+   - Consolas Hybrid Yahei：
+   - Hybird Consola Yahei：
+   - Mac Monaco：
+   - Menlo：
+   - SF Mono：
+   - Cascadia Mono：
+   - Cascadia Code：
+   - Fixedsys：像素风格
+   - ShareTechMono：
+   - Courier New：
+   - Intel One Mono：
+   - Noto Sans Mono：
+   - Noto Mono：
+   - Sarasa Mono：
+   - Sarasa Gothic：
+   - Sarasa Mono：
+   - Computer Modern Unicode Typewriter：
+   - Roboto Mono：
+   - Reddit Mono：
+   - Ia Writer Mono：
+   - Geist Mono：
+   - Andale Mono：
+   - Comic Mono：
+   - Comic Code：
+   - Comic Sans：
+   - Monocraft：
+   - Monospace：
+   - Go Mono：
+   - Liberation Mono：
+   - Code New Roman：
+   - Berkeley Mono：
+   - Rec Mono Casual：
+   - Monalisa：
+   - Meslo：
+   - Mononoki：
+   - Victor Mono：
+   - Unicodepad：
+   - DejaVu Sans Mono：
+   - RomanSong：
+   - GNU Unifont：
+   - Melso：
+   - CamingoCode：
+   - Unispace：
+   - Mono Lisa：
+   - Mononoki：
+   - Menlo：
+   - Futura：
+   - Lucida sans：
+   - Powerlevel10k：
+   - DejaVu Sans Mono：
+   - Futura Bold：
+## 3.5.扩展插件
 1. 必装插件：Chinese简体中文
 2. 语法辅助：
    - C类：C/C++-Extension-Pack语法辅助
@@ -115,10 +228,10 @@ image: "api"                        #随机封面 “image: ./cover.jpg”
    - Code-translate英词翻译
 7. 安装扩展：TODO-Highlight高亮注释的TODO，GBK-to-UTF8-for-vscode文件编码转换，Hex-Editor查看文件十六编码，Doxygen-Documentation-Generator生成和查看函数注释格式，Competitive-Programming-Helper便捷输入测试代码输出，Project-Manager工程打开对应扩展，，Rainbow-CSV数据文件不同颜色区分行列，Live-Server临时前端浏览器，IntelliCode自动代码补全，Docker管理本地Docker，Jest测试框架，Simple-React-Snippets生成代码片段，WSL连接到win的linux子系统，Postman发送请求测试，Thunder-Client发送请求测试，REST-Client发送请求测试，MySQL管理数据库工具，SQLite管理数据库工具，SQL-Formatter格式化SQL代码，Redis管理数据库工具，VUE语法辅助，ES7+React语法辅助，Auto-Rename-Tag前后标签同步修改，JavaScript-Debugger代码Java调试，CSS-Peek查看CSS样式，ESLint代码Java检查，Console-Ninja输出显示在代码行，Quokka-js实时Java沙盒，Angular-Snippets生成代码片段，，any-rule提供常用正则表达式，Import-Cost导入头文件容量，C/C++-Compile-Run，better-C++-syntax，python-snippets
 8. AI扩展：BaiDu-Comate，Lingma，Trae-AI，CodeGeeX，Github-Copilot，Tabnine，Blackbox-AI，AWS-Toolkit
-9.  娱乐扩展：vscode-pets小宠物，VSC-Netease-Music网易云音乐，游戏300之坦克大战，Thief-Book，Rainbow-Fart，韭菜盒子，Qwerty-Learner打字练习器
+9. 娱乐扩展：vscode-pets小宠物，VSC-Netease-Music网易云音乐，游戏300之坦克大战，Thief-Book，Rainbow-Fart，韭菜盒子，Qwerty-Learner打字练习器
 10. 字体扩展：FiraCode
 
-## 3.5.Json配置
+## 3.6.Json配置
 - 构建命令tasks.json
 
 - 调试配置launch.json
@@ -177,9 +290,10 @@ https://www.bilibili.com/video/BV1QMZ3BfEJy/?（调试问题）
 
 # 7.Python虚拟环境
 ## 7.1.Miniforge
-https://www.bilibili.com/video/BV1Fm4ZzDEeY/?
-https://www.bilibili.com/video/BV1hQotB6EK9/?
-https://www.bilibili.com/video/BV1xc7a6CEbD/?
+1. 虚拟环境隔离和Python包管理器（还在使用anaconda和miniconda的要注意了）
+2. https://www.bilibili.com/video/BV1Fm4ZzDEeY/?
+3. https://www.bilibili.com/video/BV1hQotB6EK9/?
+4. https://www.bilibili.com/video/BV1xc7a6CEbD/?
 
 安装时候勾选两个创建快捷方式和清除安装的包
 可能可以配置c++虚拟环境
